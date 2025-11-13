@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans Gujarati", sans-serif;
+  }
+  
+  body {
+    background: #fffdf6;
+    color: #222;
+    line-height: 1.8;
+  }
+  
+  header {
+    text-align: center;
+    background: #fff3cd;
+    border-bottom: 3px solid #ff9800;
+    padding: 20px;
+  }
+  
+  header h1 {
+    color: #c62828;
+    font-size: 22px;
+  }
+  
+  header p {
+    color: #444;
+    font-size: 18px;
+  }
+  
+  section {
+    padding: 25px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .story img, .product-section img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Product Features */
+  .product-section ul {
+    list-style: none;
+    margin-top: 10px;
+  }
+  
+  .product-section li {
+    background: #e8f5e9;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+  }
+  
+  /* Form Box Section */
+  .form-box {
+    background: #0a4c0a;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  }
+  
+  .form-box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .price-box {
+    background: #f9e791;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #444;
+  }
+  
+  .new-price {
+    color: #c62828;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  form {
+    background: #f9e791;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background: #b71c1c;
+  }
+  
+  .form-product {
+    width: 180px;
+    margin-top: 10px;
+  }
+  
+  /* Testimonial */
+  .testimonial {
+    background: #f1f1f1;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  /* WhatsApp Box */
+  .whatsapp-box {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    z-index: 100;
+  }
+  
+  .chat-header {
+    background: #25d366;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-body {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .chat-btn {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .chat-btn:hover {
+    background: #128c7e;
+  }
+  
+  /* Fixed Order Now Button */
+  .fixed-order {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 99;
+  }
+  
+  .fixed-order:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  .footer {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+  

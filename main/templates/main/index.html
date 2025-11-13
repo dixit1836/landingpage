@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SlimaX Powder - વજન ઘટાડો સરળ રીતે!</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>અહેવાલ: અમદાવાદ ના વિમલજી એ ફક્ત 2 મહિનામાં 20 કિ.ગ્રા. વજન ઘટાડ્યું!</h1>
+    <p>કોઈ મુશ્કેલી વગર અને ડાયટિંગ કર્યા વિના અદ્ભુત પરિણામ!</p>
+  </header>
+
+  <!-- Story Section -->
+  <section class="story">
+    <img src="https://via.placeholder.com/400x250?text=Before+After" alt="Before After">
+    <p><strong>હેલો મિત્રો!</strong> હું વિમલ છું, મારી ઉંમર 48 વર્ષ છે. મારી બિઝી લાઈફસ્ટાઈલને કારણે મારું વજન 90 કિલો થઈ ગયું હતું. પછી મેં <strong>SlimaX Powder</strong> નો ઉપયોગ શરૂ કર્યો અને ફક્ત 2 મહિનામાં 20 કિલો ઓછું કર્યું!</p>
+  </section>
+
+  <!-- Product Section -->
+  <section class="product-section">
+    <img src="https://via.placeholder.com/400x250?text=SlimaX+Powder" alt="SlimaX Powder">
+    <p><strong>SlimaX Powder</strong> એક 100% હર્બલ સપ્લિમેન્ટ છે જે શરીરમાંથી ચરબી ઓછી કરે છે, મેટાબોલિઝમ વધારે છે અને એનર્જી આપે છે.</p>
+    <ul>
+      <li>✅ 100% નેચરલ અને સેફ</li>
+      <li>✅ ડાયટિંગ કે એક્સરસાઈઝ વિના વજન ઘટાડો</li>
+      <li>✅ 15 દિવસમાં પરિણામ દેખાશે</li>
+    </ul>
+  </section>
+
+  <!-- Form Box Section -->
+  <section class="form-box">
+    <h2>આજની ઓફર મેળવવા માટે, નીચે આપેલ ફોર્મ ભરો અને હમણાં જ ઓર્ડર કરો</h2>
+    <div class="price-box">
+      <p class="old-price">Old Price - ₹2998</p>
+      <p class="new-price">New Price - ₹1499</p>
+    </div>
+    
+    <!-- Display messages -->
+    {% if messages %}
+      <div style="margin: 10px 0; padding: 10px; background: #f9e791; border-radius: 5px; color: #000;">
+        {% for message in messages %}
+          <p style="margin: 0;">{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <form id="orderForm" method="POST" action="{% url 'index' %}">
+      {% csrf_token %}
+      <input type="text" id="name" name="name" placeholder="નામ" required>
+      <div style="position: relative;">
+        <input type="tel" id="mobile" name="mobile" placeholder="મોબાઇલ નંબર" required>
+        <div id="mobileError" style="display: none; color: #ff5252; font-size: 14px; margin-top: 5px; padding: 5px; background: #ffe0e0; border-radius: 3px;"></div>
+      </div>
+      <textarea id="address" name="address" placeholder="સરનામું" required></textarea>
+      <input type="text" id="pincode" name="pincode" placeholder="પિનકોડ" required>
+      <button type="submit">PLACE ORDER</button>
+    </form>
+    <img src="https://via.placeholder.com/250x150?text=SlimaX+Powder" alt="SlimaX Product" class="form-product">
+  </section>
+
+  <!-- WhatsApp Box -->
+  <div id="whatsappBox" class="whatsapp-box">
+    <div class="chat-header">
+      <h4>SlimaX Support</h4>
+      <span id="closeChat">✖</span>
+    </div>
+    <div class="chat-body">
+      <p>👋 નમસ્તે! શું તમે SlimaX Powder વિશે માહિતી ઈચ્છો છો?</p>
+      <a href="https://wa.me/919714138494?text=હેલો!%20મને%20SlimaX%20Powder%20નો%20ઓર્ડર%20કરવો%20છે." target="_blank" class="chat-btn">હા, WhatsApp ખોલો</a>
+    </div>
+  </div>
+
+  <!-- Fixed Order Now Button -->
+  <button id="orderNow" class="fixed-order">ORDER NOW</button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 SlimaX Powder | બધા હક્કો સુરક્ષિત</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const orderBtn = document.getElementById('orderNow');
+    const whatsappBox = document.getElementById('whatsappBox');
+    const closeChat = document.getElementById('closeChat');
+    const form = document.getElementById('orderForm');
+    const mobileInput = document.getElementById('mobile');
+    const mobileError = document.getElementById('mobileError');
+    let mobileCheckTimeout;
+
+    const thankYouUrl = "{% url 'thank_you' %}";
+    const checkMobileUrl = "{% url 'check_mobile' %}";
+
+    // Show WhatsApp box when clicking ORDER NOW button
+    orderBtn.addEventListener('click', () => {
+      whatsappBox.style.display = 'block';
+    });
+
+    closeChat.addEventListener('click', () => {
+      whatsappBox.style.display = 'none';
+    });
+
+    // Real-time mobile number validation
+    mobileInput.addEventListener('input', function() {
+      const mobile = this.value.trim();
+      
+      // Clear previous timeout
+      clearTimeout(mobileCheckTimeout);
+      
+      // Hide error message
+      mobileError.style.display = 'none';
+      mobileInput.style.borderColor = '';
+      
+      // Only check if mobile number has at least 10 digits
+      if (mobile.length >= 10) {
+        // Debounce: wait 500ms after user stops typing
+        mobileCheckTimeout = setTimeout(() => {
+          fetch(`${checkMobileUrl}?mobile=${encodeURIComponent(mobile)}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.exists) {
+                mobileError.textContent = data.message;
+                mobileError.style.display = 'block';
+                mobileInput.style.borderColor = '#ff5252';
+              } else {
+                mobileError.style.display = 'none';
+                mobileInput.style.borderColor = '#4caf50';
+              }
+            })
+            .catch(error => {
+              console.error('Error checking mobile:', error);
+            });
+        }, 500);
+      }
+    });
+
+    // Handle form submission - open WhatsApp first, then save to database
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+      
+      const name = document.getElementById('name').value;
+      const mobile = document.getElementById('mobile').value.trim();
+      const address = document.getElementById('address').value;
+      const pincode = document.getElementById('pincode').value;
+
+      // Validate form data
+      if (!name || !mobile || !address || !pincode) {
+        alert('કૃપા કરીને બધી માહિતી ભરો!');
+        return false;
+      }
+
+      // Check if mobile number is already registered before submitting
+      if (mobileError.style.display === 'block') {
+        alert('કૃપા કરીને માન્ય મોબાઇલ નંબર દાખલ કરો!');
+        mobileInput.focus();
+        return false;
+      }
+
+      
+
+      // Prepare form data for submission
+      const formData = new FormData(form);
+      
+      // Submit form data to Django via fetch to save order
+      fetch("{% url 'index' %}", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => {
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();
+        } else {
+          // If not JSON, assume success and redirect
+          return { success: true };
+        }
+      })
+      .then(data => {
+        if (data.success) {          
+          // Redirect to thank you page after successful save
+          window.location.href = thankYouUrl;
+        } else {
+          // Show error message
+          if (data.error) {
+            alert(data.error);
+            // If it's a mobile number error, highlight the field
+            if (data.error.includes('મોબાઇલ નંબર')) {
+              mobileError.textContent = data.error;
+              mobileError.style.display = 'block';
+              mobileInput.style.borderColor = '#ff5252';
+              mobileInput.focus();
+            }
+          } else {
+            alert('કોઈ ભૂલ આવી. કૃપા કરીને ફરી પ્રયાસ કરો.');
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // On error, still try to redirect (order might have been saved)
+        alert('ઓર્ડર પ્રક્રિયા ચાલુ છે...');
+        setTimeout(() => {
+          window.location.href = thankYouUrl;
+        }, 1000);
+      });
+    });
+  </script>
+
+</body>
+</html>
