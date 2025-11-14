@@ -11,15 +11,60 @@
 
   <!-- Header -->
   <header class="header">
-    <h1>અહેવાલ: અમદાવાદ ના વિમલજી એ ફક્ત 2 મહિનામાં 20 કિ.ગ્રા. વજન ઘટાડ્યું!</h1>
-    <p>કોઈ મુશ્કેલી વગર અને ડાયટિંગ કર્યા વિના અદ્ભુત પરિણામ!</p>
+    <h1>અહેવાલ: સલિમાક્સ પોવર દ્વારા તમારું શુગર ઘટાડો!</h1>
+    <p>કોઈ મુશ્કેલી વગર અદ્ભુત પરિણામ!</p>
   </header>
 
   <!-- Story Section -->
   <section class="story">
-    <img src="https://via.placeholder.com/400x250?text=Before+After" alt="Before After">
-    <p><strong>હેલો મિત્રો!</strong> હું વિમલ છું, મારી ઉંમર 48 વર્ષ છે. મારી બિઝી લાઈફસ્ટાઈલને કારણે મારું વજન 90 કિલો થઈ ગયું હતું. પછી મેં <strong>SlimaX Powder</strong> નો ઉપયોગ શરૂ કર્યો અને ફક્ત 2 મહિનામાં 20 કિલો ઓછું કર્યું!</p>
+    <div>
+      <img src="{% static 'main/doctor.png' %}" alt="Doctor">
+    </div>
   </section>
+
+
+  <!-- ⭐ NEW DIABETES STORY SECTION ⭐ -->
+  <section class="diabetes-story">
+
+    <!-- Left Image -->
+
+
+    <!-- Right Text -->
+    <div>
+      
+      <p><strong>મારું નામ સીમા ગુપ્તા છે</strong>, અને આજે હું તમને ડાયાબિટીસને નિયંત્રણમાં રાખવાની એવી વૈજ્ઞાનિક પદ્ધતિ વિશે જણાવવા જઈ રહી છું, જેના વિશે આજે પણ મોટા ભાગના લોકો અજાણ છે.</p>
+
+      <p>જો તમે પહેલાં અલગ–અલગ દવાઓ, કડક ડાયટ, અથવા મોંઘા સપ્લિમેન્ટ્સ લઈને તમારું શુગર લેવલ કાબૂમાં લાવવાનો પ્રયત્ન કર્યો હોય, તો તમે જાણો છો કે પરિણામ હંમેશા થોડા દિવસો માટે જ રહે છે. પછી થોડા સમય પછી ફરીથી શુગર લેવલ વધવા માંડે છે…</p>
+
+      <p><strong>પણ આ બધું તમારા સાથે થવું જરૂરી નથી.</strong></p>
+
+      <p>જો તમે પહેલી વાર કોઈ નવી પદ્ધતિ વિશે સાંભળી રહ્યા છો, તો તમે ખરેખર નસીબદાર છો — કારણ કે હવે તમે સાચો રસ્તો જાણવા જઈ રહ્યા છો.</p>
+
+      <p>આ પદ્ધતિ શરીરમાંથી <strong>ઇન્સ્યુલિન રેઝિસ્ટન્સ ઘટાડીને</strong> શરીરને ફરી કુદરતી રીતે શુગર નિયંત્રિત કરવાની શક્તિ આપે છે.  
+      કોઈ કડક ડાયટ નહીં, કોઈ ભારે જિમ નહિ…  
+      માત્ર શરીરની અંદર ચરબીથી બ્લોક થયેલી ઇન્સ્યુલિન રીસેપ્ટર સાફ કરવામાં મદદ કરે છે.</p>
+
+      <p>હું તમને મારા સહાયક <strong>કોમલ</strong> નો વાસ્તવિક ફોટો પણ બતાવવા માંગું છું.  
+      કોમલને ટાઈપ–2 ડાયાબિટીસ હતી —  
+      તેમનું ફાસ્ટિંગ શુગર <strong>182</strong> હતું  
+      અને Post-meal <strong>240+</strong>.</p>
+
+      <p><strong>આ પદ્ધતિ અપનાવ્યા બાદ માત્ર 6 અઠવાડિયામાં —</strong></p>
+
+      <ul>
+        <li>✔ ફાસ્ટિંગ શુગર 182 → <strong>109</strong></li>
+        <li>✔ Post-meal 240 → <strong>148</strong></li>
+        <li>✔ ઊર્જા, ઊંઘ અને માનસિક શાંતિમાં અદ્ભૂત સુધારો</li>
+      </ul>
+
+      <p>આ કોઈ જાદુ નથી…  
+      આ છે શરીરના મેટાબોલિઝમને ફરી સેટ કરવાની સાચી વૈજ્ઞાનિક પદ્ધતિ.</p>
+
+    </div>
+
+  </section>
+  <!-- END DIABETES BLOCK -->
+
 
   <!-- Product Section -->
   <section class="product-section">
@@ -39,8 +84,7 @@
       <p class="old-price">Old Price - ₹2998</p>
       <p class="new-price">New Price - ₹1499</p>
     </div>
-    
-    <!-- Display messages -->
+
     {% if messages %}
       <div style="margin: 10px 0; padding: 10px; background: #f9e791; border-radius: 5px; color: #000;">
         {% for message in messages %}
@@ -52,14 +96,17 @@
     <form id="orderForm" method="POST" action="{% url 'index' %}">
       {% csrf_token %}
       <input type="text" id="name" name="name" placeholder="નામ" required>
+
       <div style="position: relative;">
         <input type="tel" id="mobile" name="mobile" placeholder="મોબાઇલ નંબર" required>
         <div id="mobileError" style="display: none; color: #ff5252; font-size: 14px; margin-top: 5px; padding: 5px; background: #ffe0e0; border-radius: 3px;"></div>
       </div>
+
       <textarea id="address" name="address" placeholder="સરનામું" required></textarea>
       <input type="text" id="pincode" name="pincode" placeholder="પિનકોડ" required>
       <button type="submit">PLACE ORDER</button>
     </form>
+
     <img src="https://via.placeholder.com/250x150?text=SlimaX+Powder" alt="SlimaX Product" class="form-product">
   </section>
 
@@ -96,7 +143,6 @@
     const thankYouUrl = "{% url 'thank_you' %}";
     const checkMobileUrl = "{% url 'check_mobile' %}";
 
-    // Show WhatsApp box when clicking ORDER NOW button
     orderBtn.addEventListener('click', () => {
       whatsappBox.style.display = 'block';
     });
@@ -105,23 +151,16 @@
       whatsappBox.style.display = 'none';
     });
 
-    // Real-time mobile number validation
     mobileInput.addEventListener('input', function() {
       const mobile = this.value.trim();
-      
-      // Clear previous timeout
       clearTimeout(mobileCheckTimeout);
-      
-      // Hide error message
       mobileError.style.display = 'none';
       mobileInput.style.borderColor = '';
-      
-      // Only check if mobile number has at least 10 digits
+
       if (mobile.length >= 10) {
-        // Debounce: wait 500ms after user stops typing
         mobileCheckTimeout = setTimeout(() => {
           fetch(`${checkMobileUrl}?mobile=${encodeURIComponent(mobile)}`)
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
               if (data.exists) {
                 mobileError.textContent = data.message;
@@ -131,42 +170,15 @@
                 mobileError.style.display = 'none';
                 mobileInput.style.borderColor = '#4caf50';
               }
-            })
-            .catch(error => {
-              console.error('Error checking mobile:', error);
             });
         }, 500);
       }
     });
 
-    // Handle form submission - open WhatsApp first, then save to database
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent default form submission
-      
-      const name = document.getElementById('name').value;
-      const mobile = document.getElementById('mobile').value.trim();
-      const address = document.getElementById('address').value;
-      const pincode = document.getElementById('pincode').value;
-
-      // Validate form data
-      if (!name || !mobile || !address || !pincode) {
-        alert('કૃપા કરીને બધી માહિતી ભરો!');
-        return false;
-      }
-
-      // Check if mobile number is already registered before submitting
-      if (mobileError.style.display === 'block') {
-        alert('કૃપા કરીને માન્ય મોબાઇલ નંબર દાખલ કરો!');
-        mobileInput.focus();
-        return false;
-      }
-
-      
-
-      // Prepare form data for submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
       const formData = new FormData(form);
-      
-      // Submit form data to Django via fetch to save order
+
       fetch("{% url 'index' %}", {
         method: 'POST',
         body: formData,
@@ -175,43 +187,16 @@
           'X-Requested-With': 'XMLHttpRequest'
         }
       })
-      .then(response => {
-        // Check if response is JSON
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          return response.json();
-        } else {
-          // If not JSON, assume success and redirect
-          return { success: true };
-        }
-      })
+      .then(r => r.json())
       .then(data => {
-        if (data.success) {          
-          // Redirect to thank you page after successful save
+        if (data.success) {
           window.location.href = thankYouUrl;
         } else {
-          // Show error message
-          if (data.error) {
-            alert(data.error);
-            // If it's a mobile number error, highlight the field
-            if (data.error.includes('મોબાઇલ નંબર')) {
-              mobileError.textContent = data.error;
-              mobileError.style.display = 'block';
-              mobileInput.style.borderColor = '#ff5252';
-              mobileInput.focus();
-            }
-          } else {
-            alert('કોઈ ભૂલ આવી. કૃપા કરીને ફરી પ્રયાસ કરો.');
-          }
+          alert(data.error || 'Error occurred.');
         }
       })
-      .catch(error => {
-        console.error('Error:', error);
-        // On error, still try to redirect (order might have been saved)
-        alert('ઓર્ડર પ્રક્રિયા ચાલુ છે...');
-        setTimeout(() => {
-          window.location.href = thankYouUrl;
-        }, 1000);
+      .catch(() => {
+        window.location.href = thankYouUrl;
       });
     });
   </script>

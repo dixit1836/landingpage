@@ -32,6 +32,7 @@
     padding: 25px;
     max-width: 800px;
     margin: auto;
+    width: 100%;
   }
   
   .story img, .product-section img {
@@ -61,6 +62,10 @@
     text-align: center;
     padding: 20px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .form-box h2 {
@@ -206,5 +211,229 @@
     padding: 15px;
     font-size: 14px;
     color: #555;
+  }
+
+  /* Diabetes Story Section */
+  .diabetes-story {
+    background: #eaf7ff;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 25px auto;
+    max-width: 900px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .diabetes-story > div:first-child {
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+  }
+
+  .diabetes-story > div:first-child img {
+    width: 100%;
+    max-width: 450px;
+    min-height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .diabetes-story > div:last-child {
+    flex: 2;
+    min-width: 280px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #222;
+  }
+
+  .diabetes-story ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 18px;
+    }
+
+    header p {
+      font-size: 16px;
+    }
+
+    section {
+      padding: 15px;
+      max-width: 100%;
+    }
+
+    .diabetes-story {
+      padding: 15px;
+      margin: 15px auto;
+      flex-direction: column;
+      gap: 15px;
+      max-width: calc(100% - 30px);
+    }
+
+    .diabetes-story > div:first-child {
+      min-width: 100%;
+      flex: none;
+    }
+
+    .diabetes-story > div:first-child img {
+      max-width: 100%;
+      min-height: 400px;
+    }
+
+    .diabetes-story > div:last-child {
+      min-width: 100%;
+      flex: none;
+      font-size: 15px;
+    }
+
+    .form-box {
+      padding: 15px;
+      margin: 15px auto;
+      max-width: calc(100% - 30px);
+    }
+
+    .form-box h2 {
+      font-size: 16px;
+    }
+
+    .price-box {
+      padding: 8px;
+    }
+
+    .new-price {
+      font-size: 18px;
+    }
+
+    form {
+      padding: 12px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    .form-product {
+      width: 150px;
+    }
+
+    .whatsapp-box {
+      width: calc(100% - 40px);
+      right: 20px;
+      left: 20px;
+      bottom: 100px;
+    }
+
+    .fixed-order {
+      bottom: 15px;
+      right: 15px;
+      left: 15px;
+      width: calc(100% - 30px);
+      font-size: 16px;
+      padding: 14px 20px;
+    }
+
+    .product-section {
+      padding: 15px;
+    }
+
+    .product-section img {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 15px 10px;
+    }
+
+    header h1 {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    header p {
+      font-size: 14px;
+    }
+
+    section {
+      padding: 10px;
+      max-width: 100%;
+    }
+
+    .diabetes-story {
+      padding: 12px;
+      margin: 10px;
+    }
+
+    .diabetes-story > div:first-child img {
+      min-height: 350px;
+    }
+
+    .diabetes-story > div:last-child {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .diabetes-story > div:last-child p {
+      margin-bottom: 10px;
+    }
+
+    .form-box {
+      padding: 12px;
+      margin: 10px auto;
+      max-width: calc(100% - 20px);
+    }
+
+    .form-box h2 {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .new-price {
+      font-size: 16px;
+    }
+
+    .old-price {
+      font-size: 14px;
+    }
+
+    .whatsapp-box {
+      width: calc(100% - 20px);
+      right: 10px;
+      left: 10px;
+      bottom: 90px;
+    }
+
+    .chat-header h4 {
+      font-size: 14px;
+    }
+
+    .fixed-order {
+      bottom: 10px;
+      right: 10px;
+      left: 10px;
+      width: calc(100% - 20px);
+      font-size: 15px;
+      padding: 12px 15px;
+    }
+
+    .footer {
+      padding: 12px 10px;
+      font-size: 12px;
+    }
   }
   
