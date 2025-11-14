@@ -94,14 +94,11 @@ def admin_panel(request):
     status_counts = {
         'pending': Order.objects.filter(status='pending').count(),
         'confirmed': Order.objects.filter(status='confirmed').count(),
-        'shipped': Order.objects.filter(status='shipped').count(),
-        'delivered': Order.objects.filter(status='delivered').count(),
     }
 
     status_update_choices = [
         ('pending', 'Pending'),
-        ('shipped', 'Shipped'),
-        ('delivered', 'Delivered'),
+        ('confirmed', 'Confirmed'),
     ]
     status_update_values = [value for value, _ in status_update_choices]
     
@@ -120,7 +117,7 @@ def admin_panel(request):
 def update_order_status(request, order_id):
     """Update order status from the custom admin panel"""
     new_status = request.POST.get('status', '').strip()
-    allowed_statuses = {'pending', 'shipped', 'delivered'}
+    allowed_statuses = {'pending', 'confirmed'}
 
     if new_status not in allowed_statuses:
         return JsonResponse({'success': False, 'error': 'Invalid status selected.'}, status=400)

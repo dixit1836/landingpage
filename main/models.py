@@ -13,8 +13,6 @@ class Order(models.Model):
         choices=[
             ('pending', 'Pending'),
             ('confirmed', 'Confirmed'),
-            ('shipped', 'Shipped'),
-            ('delivered', 'Delivered'),
         ],
         default='pending',
         verbose_name="સ્થિતિ"

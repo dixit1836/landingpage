@@ -64,14 +64,6 @@
       background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     }
 
-    .stat-card.shipped {
-      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    }
-
-    .stat-card.delivered {
-      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    }
-
     .stat-card h3 {
       font-size: 32px;
       margin-bottom: 5px;
@@ -103,15 +95,15 @@
       font-weight: 600;
       font-size: 14px;
       text-transform: uppercase;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
 
     td {
       padding: 15px;
       border-bottom: 1px solid #e0e0e0;
-    }
-
-    tr:hover {
-      background: #f9f9f9;
     }
 
     .status-badge {
@@ -131,16 +123,6 @@
     .status-confirmed {
       background: #e3f2fd;
       color: #1565c0;
-    }
-
-    .status-shipped {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-
-    .status-delivered {
-      background: #fff3e0;
-      color: #e65100;
     }
 
     .status-select {
@@ -164,18 +146,6 @@
       background: #ffebee;
       border-color: #c62828;
       color: #c62828;
-    }
-
-    .status-select.status-shipped {
-      background: #e8f5e9;
-      border-color: #2e7d32;
-      color: #2e7d32;
-    }
-
-    .status-select.status-delivered {
-      background: #fff3e0;
-      border-color: #e65100;
-      color: #e65100;
     }
 
     .status-select.status-confirmed {
@@ -315,14 +285,6 @@
         <h3>{{ status_counts.confirmed }}</h3>
         <p>Confirmed</p>
       </div>
-      <div class="stat-card shipped">
-        <h3>{{ status_counts.shipped }}</h3>
-        <p>Shipped</p>
-      </div>
-      <div class="stat-card delivered">
-        <h3>{{ status_counts.delivered }}</h3>
-        <p>Delivered</p>
-      </div>
     </div>
 
     <!-- Search and Filter -->
@@ -330,7 +292,8 @@
       <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search by name, mobile, address, or pincode...">
       <select id="statusFilter" class="filter-select">
         <option value="">All Status</option>
-        <option value="delivered">Delivered</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
       </select>
       <button onclick="location.reload()" class="refresh-btn">🔄 Refresh</button>
     </div>
@@ -370,9 +333,6 @@
                     {{ label }}
                   </option>
                 {% endfor %}
-                {% if order.status not in status_update_values %}
-                  <option value="{{ order.status }}" selected>{{ order.get_status_display }}</option>
-                {% endif %}
               </select>
             </td>
             <td>{{ order.created_at|date:"d M Y, h:i A" }}</td>
@@ -401,8 +361,6 @@
     const statusCards = {
       pending: document.querySelector('.stat-card.pending h3'),
       confirmed: document.querySelector('.stat-card.confirmed h3'),
-      shipped: document.querySelector('.stat-card.shipped h3'),
-      delivered: document.querySelector('.stat-card.delivered h3'),
     };
 
     // Search and filter functionality
@@ -433,9 +391,18 @@
           if (statusValue) {
             const statusCell = cells[5];
             if (statusCell) {
-              const statusText = statusCell.textContent.toLowerCase();
-              if (!statusText.includes(statusValue)) {
-                shouldShow = false;
+              const statusSelect = statusCell.querySelector('.status-select');
+              if (statusSelect) {
+                const currentStatus = statusSelect.value.toLowerCase();
+                if (currentStatus !== statusValue) {
+                  shouldShow = false;
+                }
+              } else {
+                // Fallback to text content if no select found
+                const statusText = statusCell.textContent.toLowerCase();
+                if (!statusText.includes(statusValue)) {
+                  shouldShow = false;
+                }
               }
             }
           }
@@ -450,7 +417,7 @@
 
     // Helper to update select styling based on value
     function updateStatusSelectStyle(selectElement) {
-      const statusClasses = ['status-pending', 'status-confirmed', 'status-shipped', 'status-delivered'];
+      const statusClasses = ['status-pending', 'status-confirmed'];
       statusClasses.forEach(cls => selectElement.classList.remove(cls));
       selectElement.classList.add(`status-${selectElement.value}`);
     }
