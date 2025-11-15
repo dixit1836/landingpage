@@ -44,4 +44,7 @@ dist/
 *.egg-info/
 
 # MyPy
-.mypy_cache/_
+.mypy_cache/
+
+# PyTest
+.pytest_cache/
