@@ -1,0 +1,47 @@
+# Ignore virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+
+# Ignore environment variables
+.env
+*.env
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Django stuff
+*.log
+staticfiles/
+media/
+db.sqlite3
+local_settings.py
+
+# Ignore compiled files
+*.so
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# MyPy
+.mypy_cache/_
