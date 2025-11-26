@@ -28,7 +28,7 @@ Open http://127.0.0.1:8000/ to view the landing page. The thank-you page lives a
 
 ## Project Structure Highlights
 
-- `landingpage_site/` – Django project configuration.
+- `landingpage/` – Django project configuration.
 - `main/` – App serving the landing page.
   - `templates/main/` – `index.html` and `thankyou.html`.
   - `static/main/style.css` – Stylesheet referenced via Django static files.

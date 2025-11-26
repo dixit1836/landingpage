@@ -1,5 +1,5 @@
 """
-ASGI config for landingpage_site project.
+ASGI config for landingpage project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

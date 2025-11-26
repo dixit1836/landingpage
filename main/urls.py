@@ -9,5 +9,7 @@ urlpatterns = [
     path("check-mobile/", views.check_mobile, name="check_mobile"),
     path("admin-panel/", views.admin_panel, name="admin_panel"),
     path("orders/<int:order_id>/status/", views.update_order_status, name="update_order_status"),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
 ]
 

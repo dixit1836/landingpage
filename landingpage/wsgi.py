@@ -1,5 +1,5 @@
 """
-WSGI config for landingpage_site project.
+WSGI config for landingpage project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
