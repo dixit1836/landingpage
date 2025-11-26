@@ -1,3 +1,6 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse
@@ -85,6 +88,39 @@ def check_mobile(request):
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
 
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('admin_panel')
+
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip()
+        password = request.POST.get('password', '').strip()
+
+        if not email or not password:
+            messages.error(request, 'Please enter both email and password.')
+            return render(request, 'main/login.html')
+
+        # Find user by email
+        try:
+            user = User.objects.get(email=email)
+            user = authenticate(request, username=user.username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('admin_panel')
+            else:
+                messages.error(request, 'Invalid email or password.')
+        except User.DoesNotExist:
+            messages.error(request, 'Invalid email or password.')
+
+    return render(request, 'main/login.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+@login_required(login_url='login')
 def admin_panel(request):
     """Admin panel to view all orders"""
     orders = Order.objects.all().order_by('-created_at')
@@ -113,6 +149,7 @@ def admin_panel(request):
     return render(request, "main/admin_panel.html", context)
 
 
+@login_required(login_url='login')
 @require_POST
 def update_order_status(request, order_id):
     """Update order status from the custom admin panel"""
