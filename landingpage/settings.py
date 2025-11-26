@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pj2w+4#)asfmi$dqtxof-st#gak(*e!ec8($1pie)(@3fy1t$v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["girirajonline.in", ]
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'landingpage_site.urls'
+ROOT_URLCONF = 'landingpage.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'landingpage_site.wsgi.application'
+WSGI_APPLICATION = 'landingpage.wsgi.application'
 
 
 # Database
