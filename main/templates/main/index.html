@@ -5,687 +5,353 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NIVARA LIFE — Diabetes Kit (Article)</title>
-  <style>
-    /* Reset & base */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: #1b1b1b;
-      background: #f7f9fb;
-      -webkit-font-smoothing: antialiased;
-      padding: clamp(8px, 2vw, 24px);
-    }
-
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: clamp(8px, 1.5vw, 12px);
-      box-shadow: 0 6px 30px rgba(10, 20, 30, 0.06);
-      overflow: hidden;
-    }
-
-    /* Header */
-    .topbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: clamp(8px, 2vw, 16px);
-      padding: clamp(12px, 3vw, 20px) clamp(16px, 4vw, 28px);
-      border-bottom: 1px solid #eef2f6;
-      background: linear-gradient(90deg, #ffffff, #fbfdff);
-    }
-
-    .logo {
-      width: clamp(60px, 10vw, 84px);
-      height: auto;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-
-    .brand {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(16px, 3vw, 20px);
-      letter-spacing: 0.2px;
-    }
-
-    .brand p {
-      margin: 4px 0 0;
-      color: #5d6b7a;
-      font-size: clamp(11px, 2vw, 13px);
-    }
-
-    .contact {
-      text-align: right;
-      font-size: clamp(11px, 2vw, 13px);
-      color: #3b4a59;
-    }
-
-    .contact b {
-      display: block;
-      color: #0b6efd;
-      word-break: break-all;
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(16px, 3vw, 28px);
-      align-items: center;
-      padding: clamp(16px, 3vw, 28px);
-    }
-
-    .hero-left {
-      padding-right: 0;
-    }
-
-    .hero-left h2 {
-      margin: 8px 0;
-      font-size: clamp(18px, 4vw, 22px);
-      line-height: 1.4;
-    }
-
-    .hero-left p.lead {
-      margin: 0 0 16px;
-      color: #374151;
-      font-size: clamp(14px, 2.5vw, 16px);
-    }
-
-    .hero-right {
-      text-align: center;
-    }
-
-    .hero-right img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 10px;
-      box-shadow: 0 8px 30px rgba(30, 60, 90, 0.06);
-    }
-
-    /* Main layout */
-    .main {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(16px, 3vw, 28px);
-      padding: clamp(16px, 3vw, 24px) clamp(16px, 4vw, 28px) clamp(24px, 5vw, 40px);
-    }
-
-    /* Article */
-    article {
-      padding-right: 0;
-    }
-
-    article h3 {
-      margin-top: clamp(12px, 2vw, 18px);
-      margin-bottom: 8px;
-      font-size: clamp(16px, 3vw, 18px);
-    }
-
-    article p {
-      margin: 8px 0;
-      color: #2b2f36;
-      font-size: clamp(14px, 2.5vw, 16px);
-    }
-
-    .badge {
-      display: inline-block;
-      background: #f1f7ff;
-      color: #0b66ff;
-      padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 10px);
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: clamp(11px, 2vw, 13px);
-    }
-
-    .list {
-      margin: 10px 0 18px;
-      padding-left: clamp(16px, 3vw, 18px);
-      font-size: clamp(14px, 2.5vw, 16px);
-    }
-
-    .list li {
-      margin-bottom: 8px;
-    }
-
-    .sym-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
-      margin: 16px 0;
-    }
-
-    .sym-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    /* Sidebar */
-    aside {
-      width: 100%;
-    }
-
-    .card {
-      background: #fbfdff;
-      border: 1px solid #eef6ff;
-      padding: clamp(12px, 2vw, 16px);
-      border-radius: 10px;
-      margin-bottom: 14px;
-    }
-
-    .card h4 {
-      margin-top: 0;
-      font-size: clamp(15px, 2.5vw, 17px);
-    }
-
-    .price {
-      font-size: clamp(18px, 3vw, 20px);
-      color: #0b6efd;
-      font-weight: 700;
-    }
-
-    .small {
-      color: #55616a;
-      font-size: clamp(12px, 2vw, 14px);
-      line-height: 1.5;
-    }
-
-    .qr img {
-      width: clamp(120px, 25vw, 140px);
-      height: clamp(120px, 25vw, 140px);
-      object-fit: contain;
-      display: block;
-      margin: 8px auto;
-    }
-
-    .chart-banner {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 12px;
-    }
-
-    .chart-banner img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Form Box Section */
-    .form-box {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: clamp(20px, 4vw, 30px);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      color: #fff;
-      text-align: center;
-    }
-
-    .form-box h2 {
-      font-size: clamp(18px, 3.5vw, 24px);
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
-    .price-box {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      color: #ffcccb;
-      font-size: clamp(16px, 3vw, 18px);
-      margin: 5px 0;
-    }
-
-    .new-price {
-      font-size: clamp(24px, 4vw, 32px);
-      font-weight: bold;
-      color: #ffeb3b;
-      margin: 5px 0;
-    }
-
-    .form-box form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .form-box input,
-    .form-box textarea {
-      padding: 12px 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: clamp(14px, 2.5vw, 16px);
-      font-family: inherit;
-      width: 100%;
-    }
-
-    .form-box textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .form-box button {
-      background: #ffeb3b;
-      color: #333;
-      padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: clamp(16px, 3vw, 18px);
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .form-box button:hover {
-      background: #fdd835;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255, 235, 59, 0.4);
-    }
-
-    .form-product {
-      width: 100%;
-      max-width: 250px;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
-
-    /* Fixed Order Button */
-    .fixed-order {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 50px;
-      font-size: clamp(14px, 2.5vw, 16px);
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 5px 25px rgba(102, 126, 234, 0.4);
-      z-index: 999;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .fixed-order:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
-    }
-
-    /* Messages */
-    .messages-box {
-      margin: 10px 0;
-      padding: 15px;
-      background: #f9e791;
-      border-radius: 8px;
-      color: #000;
-    }
-
-    .messages-box p {
-      margin: 0;
-    }
-
-    #mobileError {
-      display: none;
-      color: #ff5252;
-      font-size: 14px;
-      margin-top: 5px;
-      padding: 8px;
-      background: #ffe0e0;
-      border-radius: 5px;
-      text-align: left;
-    }
-
-    /* Footer */
-    .footer {
-      padding: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 28px);
-      border-top: 1px solid #eef2f6;
-      background: #ffffff;
-      color: #5b6570;
-      font-size: clamp(11px, 2vw, 13px);
-      text-align: center;
-    }
-
-    /* Tablet breakpoint */
-    @media (min-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr 340px;
-      }
-
-      .hero-left {
-        padding-right: 12px;
-      }
-
-      .contact {
-        min-width: 150px;
-      }
-    }
-
-    /* Desktop breakpoint */
-    @media (min-width: 980px) {
-      .main {
-        grid-template-columns: 1fr 320px;
-      }
-
-      article {
-        padding-right: 6px;
-      }
-
-      .sym-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Small mobile adjustments */
-    @media (max-width: 480px) {
-      .topbar {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .brand,
-      .contact {
-        width: 100%;
-        text-align: center;
-      }
-
-      .contact {
-        margin-top: 8px;
-      }
-
-      .logo {
-        margin: 0 auto;
-      }
-
-      .sym-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Print styles */
-    @media print {
-      body {
-        background: #fff;
-        padding: 0;
-      }
-
-      .container {
-        box-shadow: none;
-        border-radius: 0;
-      }
-
-      .qr,
-      .contact {
-        display: none;
-      }
-
-      .hero-right img {
-        max-height: 200px;
-      }
-
-      .fixed-order {
-        display: none;
-      }
-    }
-  </style>
+  <title>Herbal Diab Care™ – શુગર કન્ટ્રોલ નેચરલી</title>
+  <meta name="description"
+    content="Herbal Diab Care™ 100% આયુર્વેદિક શુગર કંટ્રોલ સપ્લિમેન્ટ છે. Buy 1 Get 1 Free સાથે ફ્રી ડિલિવરી, બ્લડ શુગાર, એનર્જી અને બ્લડ પ્રેશરને સ્વાભાવિક રીતે નિયંત્રિત કરો.">
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <img src="{% static 'main/images/img192.jpg' %}" alt="NIVARA LIFE" class="logo">
-      <div class="brand">
-        <h1>DIABETES KIT — NIVARA LIFE</h1>
-      </div>
-      <div class="contact">
-        <b>+91 94092 52470</b>
-        <span>nivaralife@gmail.com</span>
+
+  <!-- Header -->
+  <header>
+    <div class="top-banner">
+      <p>Herbal Diab Care™ • Buy 1 Get 1 Free • Free Home Delivery • ડાયાબિટીસ માટે શ્રેષ્ઠ આયુર્વેદિક ઉપાય</p>
+    </div>
+    {% comment %} <div class="navbar">
+      <div class="logo">Herbal Diab Care™</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">Diabetes</a>
+        <a href="#types">Types & Symptoms</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+    </div> {% endcomment %}
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="badge">🌿 100% આયુર્વેદિક ફોર્મ્યુલા</div>
+      <h1>Herbal Diab Care™</h1>
+      <p class="tagline">ડાયાબિટીસ માટે શ્રેષ્ઠ આયુર્વેદિક ઉપાય</p>
+      <p>બ્લડ શુગર સંતુલિત રાખો, ઈન્સુલિન ઉત્પન્નને પ્રોત્સાહિત કરો અને એનર્જી વધારો – Buy 1 Get 1 Free સાથે ફ્રી હોમ
+        ડિલિવરી.</p>
+      <ul class="hero-points">
+        <li>50,000+ સંતોષિત ગ્રાહકો</li>
+        <li>કોઈ સાઇડ ઈફેક્ટ નથી</li>
+        <li>Doctor Recommended</li>
+      </ul>
+      <div class="hero-cta">
+        <a href="#order" class="btn-primary">Order Now</a>
+        <span class="cta-note">Buy 1 Get 1 Free • Free Delivery</span>
       </div>
     </div>
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-left">
-        <span class="badge">DIABETES GUIDE</span>
-        <h2>🩸 ડાયાબિટીસ શું છે – સરળ અને સમજણભર્યું માર્ગદર્શન</h2>
-        <p class="lead">ડાયાબિટીસ એટલે જ્યારે શરીર ઇન્સ્યુલિન યોગ્ય રીતે બનાવતું ન હોય અથવા તેનો ઉપયોગ કરી શકતું ન હોય.
-          આ પાનું નિરપણ, લક્ષણો, કારણો અને સરળ નિયંત્રણ પદ્ધતિઓ રજૂ કરે છે.</p>
-        <p class="small">નોટ: અહીં આપેલી માહિતી સામાન્ય માર્ગદર્શન માટે છે. નિદાન અને દવાઓ માટે હંમેશા તમારા ડોક્ટરનો
-          સંપર્ક કરો.</p>
+    <div class="hero-product">
+      <img src="{% static 'main/images/img166.jpg' %}" alt="Herbal Diab Care Pack"
+        onerror="this.src='https://placehold.co/500x500?text=Herbal+Diab+Care';">
+      <div class="hero-offer-card">
+        <p>Limited Time</p>
+        <h3>₹2450/-</h3>
+        <span>પ્રારંભિક પેક</span>
       </div>
-      <div class="hero-right">
-        <img src="{% static 'main/images/img192.jpg' %}" alt="Diabetes Kit">
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>50,000+</h3>
+        <p>સંતોષિત ગ્રાહકો</p>
       </div>
-    </header>
+      <div class="stat-card">
+        <h3>100%</h3>
+        <p>આયુર્વેદિક ઘટકો</p>
+      </div>
+      <div class="stat-card">
+        <h3>10-15 દિવસ</h3>
+        <p>પરિણામનો સમય</p>
+      </div>
+      <div class="stat-card">
+        <h3>0</h3>
+        <p>સાઇડ ઈફેક્ટ્સ</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- MAIN -->
-    <div class="main">
-      <!-- ARTICLE -->
-      <article>
-        <h3>🧠 ડાયાબિટીસના પ્રકાર</h3>
-        <p><strong>Type 1:</strong> શરીર ઇન્સ્યુલિન નથી બનાવતું. સામાન્ય રીતે બાળકો અને યુવાનોમાં થાય છે; ઇન્સ્યુલિન
-          ઇન્જેક્શન જરૂરી હોય છે.</p>
-        <p><strong>Type 2:</strong> શરીર ઇન્સ્યુલિન બનાવે છે પરંતુ યોગ્ય રીતે ઉપયોગ નથી કરી શકતું. તે જેઓની ઉંમર વધી રહી
-          છે અથવા ખોટી લાઇફસ્ટાઈલ ધરાવે છે, તેઓમાં સામાન્ય છે.</p>
-        <p><strong>Gestational:</strong> ગર્ભાવસ્થા દરમિયાન થતો ડાયાબિટીસ; બાળક જન્મ બાદ સામાન્ય રીતે ઠીક થઈ જાય છે
-          પરંતુ બાદમાં Type 2 થવાનો જોખમ વધે છે.</p>
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">ડાયાબિટીસ શું છે ?</h2>
+      <p>ડાયાબિટીસ એ એવી સ્થિતિ છે જેમાં શરીર પૂરતું ઇન્સુલિન ઉત્પન્ન નથી કરતું અથવા તેનું યોગ્ય રીતે ઉપયોગ કરી શકતું
+        નથી. પરિણામે બ્લડ શુગરનું સ્તર વધે છે અને આંખો, કિડની અને હૃદય પર અસર પડે છે.</p>
+    </div>
+  </section>
 
-        <h3>⚠️ લક્ષણો (Symptoms)</h3>
-        <ul class="list">
-          <li>વધારે તરસ લાગવી</li>
-          <li>વધારે ભૂખ લાગવી</li>
-          <li>થાક લાગવો અને ચીડિયાપણું</li>
-          <li>વારંવાર પેશાબ આવવું</li>
-          <li>અચાનક વજન વધવું કે ઘટવું</li>
-          <li>દ્રષ્ટિ ધૂંધળી થવી</li>
-          <li>ઘા સાજા થવામાં મોડું</li>
-        </ul>
-
-        <div class="sym-grid">
-          <img src="{% static 'main/images/img180.jpg' %}" alt="Thirst">
-        </div>
-
-        <h3>🍎 કારણો (Causes)</h3>
-        <p>વારસાગત કારણો, વધારે વજન (obesity), પ્રોસેસ્ડ ફૂડ અને વધુ ખોરાકનું સેવન, ઓછું શારીરિક કાર્ય, અને માનસિક તાણ.
-        </p>
-
-        <h3>💪 ઉપચાર અને નિયંત્રણ (Treatment & Control)</h3>
-        <p><strong>1. વ્યાયામ:</strong> દરરોજ ઓછામાં ઓછા 30 મિનિટ સંયમિત ફિઝિકલ એક્ટિવિટી—ચાલવું, યોગ, પ્રાણાયામ.</p>
-        <p><strong>2. આહાર:</strong> મીઠાઈ અને કોલ્ડ ડ્રિંક્સ ની માત્રા ઘટાવો; સુંદરી ડાયેટમાં દાળ, શાકભાજી, પૂરના
-          અનાજનો સમાવેશ કરો.</p>
-        <p><strong>3. દવા:</strong> મધુમેહનિવારક ચૂર્ણનો ઉલ્લેખ છે: સવારે ભૂખ્યા પેટે અડધી ચમચી ગરમ ઉફાલા પાણી સાથે
-          (ડોક્ટર સલાહથી જ).</p>
-
-        <h3>🩸 નિરીક્ષણ (Monitoring)</h3>
-        <p>Blood sugar test નિયમિત કરો અને HbA1c (3 મહિનાની સરેરાશ) પાછું ચકાસાવો.</p>
-
-        <h3>સાવધાની</h3>
-        <p>દવા, દોષ-નિદાન અને સારવાર માટે હંમેશા વ્યાવસાયિક ડોક્ટરની સલાહ લેવા વિનંતિ.</p>
-
-        <div class="sym-grid">
-          <img src="{% static 'main/images/img179.jpg' %}" alt="Hunger">
-        </div>
-      </article>
-
-      <!-- SIDEBAR -->
-      <aside>
-        <div class="card">
-          <h4>Product</h4>
-          <img src="{% static 'main/images/img192.jpg' %}" alt="Product"
-            style="width:100%; border-radius:8px; margin-top:8px;">
-        </div>
-
-        <div class="card">
-          <h4>Quick Facts</h4>
-          <p class="small">Type 1 માં ઇન્સ્યુલિન જરૂરી હોવાથી તાત્કાલિક ડોક્ટર સંભળાવો. Type 2 લાઇફસ્ટાઈલ બદલવાથી સુધરી
-            શકે છે.</p>
-          <div class="chart-banner">
-            <img src="{% static 'main/images/blood_sugar_chart.png' %}" alt="Blood Sugar Chart">
+  <!-- Types & Symptoms -->
+  <section id="types" class="info-split">
+    <article class="info-panel">
+      <h3>મુખ્ય પ્રકારો</h3>
+      <ul>
+        <li>✅ ટાઇપ 1 ડાયાબિટીસ</li>
+        <li>✅ ટાઇપ 2 ડાયાબિટીસ</li>
+      </ul>
+    </article>
+    <article class="info-panel">
+      <h3>લક્ષણો (Symptoms)</h3>
+      <ul class="symptom-list">
+        <li>
+          <span class="symptom-icon">👁️</span>
+          <div>
+            <strong>આંખ માં જાંખુ દેખાવું</strong>
+            <p>બ્લડ શુગર વધવાથી દૃષ્ટિ પર અસર.</p>
           </div>
-        </div>
+        </li>
+        <li>
+          <span class="symptom-icon">🦶</span>
+          <div>
+            <strong>પગ માં ખારી ચડવી</strong>
+            <p>તંત્રિકાઓમાં ઝણઝણાટ અને દુખાવો.</p>
+          </div>
+        </li>
+        <li>
+          <span class="symptom-icon">💤</span>
+          <div>
+            <strong>થાક અને ઊર્જાનો અભાવ</strong>
+            <p>શરીરને પુરતી એનર્જી ન મળવાથી થાક.</p>
+          </div>
+        </li>
+        <li>
+          <span class="symptom-icon">🚽</span>
+          <div>
+            <strong>વારંવાર પેશાબ જવું</strong>
+            <p>શરીર વધેલા શુગરને બહાર કાઢે છે.</p>
+          </div>
+        </li>
+      </ul>
+    </article>
+    <article class="info-panel">
+      <h3>આયુર્વેદિક દૃષ્ટિએ</h3>
+      <p>આયુર્વેદમાં ડાયાબિટીસને “મધુમેહ” કહે છે. અયોગ્ય આહાર, તાણ અને દોશ અસંતુલનથી આ સ્થિતિ થાય છે. Herbal Diab Care™
+        દોશોને સંતુલિત કરીને શુગર અને એનર્જી સ્તરને કુદરતી રીતે સંતુલિત કરે છે.</p>
+    </article>
+  </section>
 
-        <div class="card qr">
-          <h4>Follow Us</h4>
-          <p class="small">Instagram ઉપર જોવા અને અમારી પ્રોડક્ટ લિંક માટે QR સ્કેન કરો.</p>
-          <img src="{% static 'main/images/img157.jpg' %}" alt="QR Instagram">
-        </div>
-
-        <div class="card">
-          <h4>Contact</h4>
-          <p class="small">NIVARA LIFE<br>410, Giriraj The Galleria-1,<br>Opp. Gajanand Society, Surat - 395010</p>
-          <p class="small"><b>Phone:</b> +91 94092 52470<br><b>Email:</b> nivaralife@gmail.com</p>
-        </div>
-      </aside>
-    </div>
-
-    <!-- Form Box Section -->
-    <section class="form-box" id="orderFormSection">
-      <h2>આજની ઓફર મેળવવા માટે, નીચે આપેલ ફોર્મ ભરો અને હમણાં જ ઓર્ડર કરો</h2>
-      {% comment %} <div class="price-box">
-        <p class="old-price">Old Price - ₹2998</p>
-        <p class="new-price">New Price - ₹1499</p>
-      </div> {% endcomment %}
-
-      {% if messages %}
-      <div class="messages-box">
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
+  <!-- Benefits Section -->
+  <section id="benefits">
+    <h2 class="section-title">મુખ્ય ફાયદા</h2>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <img src="{% static 'main/images/img179.jpg' %}" alt="Blood Sugar Control">
+        <h3>બ્લડ શુગર કંટ્રોલ કરે છે</h3>
+        <p>શ્વાસ અને શુગર સ્તરને સ્થિર રાખવા કુદરતી ટેકો આપે છે.</p>
       </div>
-      {% endif %}
+      <div class="benefit-card">
+        <img src="{% static 'main/images/img165.jpg' %}" alt="Energy Boost">
+        <h3>એનર્જી વધારવે છે</h3>
+        <p>થાક ઓછો કરીને દિવસભર તાજગી અને ઉર્જા પૂરી પાડે છે.</p>
+      </div>
+      <div class="benefit-card">
+        <img src="{% static 'main/images/img182.jpg' %}" alt="Insulin Production">
+        <h3>ઈન્સુલિન ઉત્પન્ન કરે છે</h3>
+        <p>સ્વાદુપિંડને સક્રિય કરી કુદરતી ઇન્સુલિન ઉત્પન્ન વધારવામાં મદદ કરે છે.</p>
+      </div>
+      <div class="benefit-card">
+        <img src="{% static 'main/images/img193.jpg' %}" alt="Blood Pressure Support">
+        <h3>બ્લડ પ્રેશર સંતુલિત રાખે છે</h3>
+        <p>બ્લડ પ્રેશરને સ્થિર રાખી હૃદયને કુદરતી રીતે સુરક્ષિત કરે છે.</p>
+      </div>
+    </div>
+  </section>
 
-      <form id="orderForm" method="POST" action="{% url 'index' %}">
-        {% csrf_token %}
-        <input type="text" id="name" name="name" placeholder="નામ" required>
+  <!-- Comparison Section -->
+  <section class="comparison-wrapper">
+    <h2 class="section-title">Herbal Diab Care vs અન્ય દવાઓ</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Herbal Diab Care™</th>
+          <th>અન્ય દવાઓ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>✅ 100% આયુર્વેદિક અને કુદરતી</td>
+          <td>❌ કૃત્રિમ કેમિકલ્સ ધરાવે છે</td>
+        </tr>
+        <tr>
+          <td>✅ સ્વાભાવિક શુગર કંટ્રોલ</td>
+          <td>❌ ફક્ત તાત્કાલિક અસર</td>
+        </tr>
+        <tr>
+          <td>✅ કોઈ સાઇડ ઈફેક્ટ નથી</td>
+          <td>❌ કિડની પર પ્રભાવ</td>
+        </tr>
+        <tr>
+          <td>✅ 50,000+ ગ્રાહકો દ્વારા વિશ્વસનીય</td>
+          <td>❌ સાબિતી વગરના દાવા</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-        <div style="position: relative;">
-          <input type="tel" id="mobile" name="mobile" placeholder="મોબાઇલ નંબર" required>
-          <div id="mobileError"></div>
+  <!-- Doctor Section -->
+  <section class="doctor-section">
+    <div class="doctor-container">
+      <div class="doctor-img">
+        <div class="video-box">
+          <div class="video-poster">
+            <img src="{% static 'main/doctor.png' %}" alt="Dr. Ruchita"
+              onerror="this.src='https://placehold.co/600x360?text=Doctor+Video';">
+            <button class="play-button" aria-label="Play doctor video">▶</button>
+          </div>
+          <p class="video-caption">Doctor Recommended • Watch how Herbal Diab Care™ balances blood sugar naturally.</p>
         </div>
+      </div>
+      <div class="doctor-content">
+        <p class="doctor-badge">Doctor Recommended</p>
+        <h2>“Herbal Diab Care™ helps naturally balance blood sugar without side effects.”</h2>
+        <p class="doctor-name">- Dr. Ruchita • B.A.M.S</p>
+        <ul class="doctor-points">
+          <li>✔ Clinically Tested</li>
+          <li>✔ 100% Natural</li>
+          <li>✔ Trusted by Experts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <textarea id="address" name="address" placeholder="સરનામું" required></textarea>
-        <input type="text" id="pincode" name="pincode" placeholder="પિનકોડ" required>
-        <button type="submit">PLACE ORDER</button>
-      </form>
-
-      <img src="{% static 'main/images/img192.jpg' %}" alt="NIVARA LIFE Product" class="form-product">
-    </section>
-
-    <!-- Fixed Order Now Button -->
-    <button id="orderNow" class="fixed-order">ORDER NOW</button>
-
-    <div class="footer">
-      © NIVARA LIFE — Informational content only. For diagnosis and treatment, consult your physician.
+  <!-- Offer Section -->
+  <section id="order" class="offer-section">
+    <div class="offer-content">
+      <h2>BUY 1 GET 1 FREE</h2>
+      <p>🎁 Limited Time Offer – Hurry Up!</p>
+      <p class="price">પ્રારંભિક પેક (₹2450/-)</p>
+      <div class="delivery-tag">🚚 Free Home Delivery • 3-5 દિવસમાં ડિલિવરી</div>
+      <a href="#order" class="btn-outline">ORDER PLACE</a>
     </div>
 
-  </div> <!-- .container -->
+    <form class="order-form" method="POST" action="{% url 'index' %}">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="તમારું નામ" required>
+      <input type="tel" name="mobile" placeholder="મોબાઇલ નંબર" required>
+      <input type="text" name="address" placeholder="સરનામું" required>
+      <input type="text" name="pincode" placeholder="પિનકોડ" required>
 
-  <!-- JavaScript -->
-  <script>
-    const orderBtn = document.getElementById('orderNow');
-    const form = document.getElementById('orderForm');
-    const mobileInput = document.getElementById('mobile');
-    const mobileError = document.getElementById('mobileError');
-    const formSection = document.getElementById('orderFormSection');
-    let mobileCheckTimeout;
+      <button type="submit" class="btn-primary">ઓર્ડર કરો</button>
+    </form>
+  </section>
 
-    const thankYouUrl = "{% url 'thank_you' %}";
-    const checkMobileUrl = "{% url 'check_mobile' %}";
+  <!-- Ingredients Section -->
+  <section id="ingredients">
+    <h2 class="section-title">મુખ્ય ઘટકો</h2>
+    <div class="ingredient-grid">
+      <div class="ingredient-card">
+        <img src="{% static 'main/images/img181.jpg' %}" alt="Jamun">
+        <h3>જામુન</h3>
+        <p>બ્લડ શુગર અને ભૂખ નિયંત્રણમાં મદદરૂપ.</p>
+      </div>
+      <div class="ingredient-card">
+        <img src="{% static 'main/images/img180.jpg' %}" alt="Methi">
+        <h3>મેથી</h3>
+        <p>ઈન્સુલિન સેન્સિટિવિટી વધારે છે.</p>
+      </div>
+      <div class="ingredient-card">
+        <img src="{% static 'main/images/img157.jpg' %}" alt="Karela">
+        <h3>કારેલા</h3>
+        <p>ગ્લુકોઝ મેટાબોલિઝમ સુધારે છે.</p>
+      </div>
+      <div class="ingredient-card">
+        <img src="{% static 'main/images/img192.jpg' %}" alt="Neem Leaves">
+        <h3>નીમ પાન</h3>
+        <p>ડિટોક્સ અને ઇમ્યુન સિસ્ટમ મજબૂત કરે છે.</p>
+      </div>
+    </div>
+  </section>
 
-    // Scroll to form when ORDER NOW is clicked
-    orderBtn.addEventListener('click', () => {
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // Focus on first input after scroll
-      setTimeout(() => {
-        document.getElementById('name').focus();
-      }, 500);
-    });
+  <!-- Testimonials -->
+  <section id="reviews">
+    <h2 class="section-title">ગ્રાહકોના અનુભવ</h2>
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img180.jpg' %}" alt="Rameshbhai Patel">
+        <p>"Herbal Diab Care™ લીધા પછી 12 દિવસમાં મારી શુગર 180 થી 130 પર આવી. કોઈ સાઇડ ઈફેક્ટ અનુભવાયો નથી."</p>
+        <h4>- રમેશભાઈ પટેલ</h4>
+      </article>
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img181.jpg' %}" alt="Sunitaben Shah">
+        <p>"Buy 1 Get 1 ઓફર અને ફ્રી ડિલિવરીથી મેં તરત ઓર્ડર આપ્યો. હવે રોજિંદી એનર્જી ઘણી વધી ગઈ છે."</p>
+        <h4>- સુનિતાબેન શાહ</h4>
+      </article>
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img165.jpg' %}" alt="Vijay Singh">
+        <p>"મારા ડોક્ટરે ભલામણ કરી હતી અને આજે હું ઇન્સુલિન પર નિર્ભરતા ઘટાડવામાં સફળ થયો છું."</p>
+        <h4>- વિજય સિંહ</h4>
+      </article>
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img179.jpg' %}" alt="Neha Patel">
+        <p>"સૂક્ષ્મ નિયંત્રણ સાથે મારા બ્લડ પ્રેશર અને શુગર બંને સ્થિર થયા છે. સવારે વધુ ફ્રેશ લાગે છે."</p>
+        <h4>- નેહા પટેલ</h4>
+      </article>
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img193.jpg' %}" alt="Anil Mehta">
+        <p>"નિયમિત માત્રા પછી HbA1c 8.4 થી 7.1 પર આવ્યું. કોઇ માઠી અસર અનુભવાઈ નથી."</p>
+        <h4>- અનિલ મહેતા</h4>
+      </article>
+      <article class="testimonial-card">
+        <img src="{% static 'main/images/img157.jpg' %}" alt="Pooja Desai">
+        <p>"આયુર્વેદિક હોવાથી મને વિશ્વાસ હતો. હવે થાક ઓછો છે અને ડાયટીંગ સરળ બની ગયું છે."</p>
+        <h4>- પૂજા દેસાઈ</h4>
+      </article>
+    </div>
+  </section>
 
-    // Mobile number validation
-    mobileInput.addEventListener('input', function () {
-      const mobile = this.value.trim();
-      clearTimeout(mobileCheckTimeout);
-      mobileError.style.display = 'none';
-      mobileInput.style.borderColor = '';
+  <!-- FAQ -->
+  <section id="faq">
+    <h2 class="section-title">વારંવાર પૂછાતા પ્રશ્નો (FAQ)</h2>
 
-      if (mobile.length >= 10) {
-        mobileCheckTimeout = setTimeout(() => {
-          fetch(`${checkMobileUrl}?mobile=${encodeURIComponent(mobile)}`)
-            .then(r => r.json())
-            .then(data => {
-              if (data.exists) {
-                mobileError.textContent = data.message;
-                mobileError.style.display = 'block';
-                mobileInput.style.borderColor = '#ff5252';
-              } else {
-                mobileError.style.display = 'none';
-                mobileInput.style.borderColor = '#4caf50';
-              }
-            })
-            .catch(err => {
-              console.error('Mobile check error:', err);
-            });
-        }, 500);
-      }
-    });
+    <div class="faq-item">
+      <div class="faq-question">Herbal Diab Care શું છે? <span>+</span></div>
+      <div class="faq-answer">Herbal Diab Care™ એક 100% આયુર્વેદિક ટેબ્લેટ છે જે બ્લડ શુગરને સ્વાભાવિક રીતે કંટ્રોલ
+        કરવામાં મદદ કરે છે અને શરીરના ચયાપચયને સંતુલિત કરે છે.</div>
+    </div>
 
-    // Form submission
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
+    <div class="faq-item">
+      <div class="faq-question">શું કોઈ સાઇડ ઈફેક્ટ છે? <span>+</span></div>
+      <div class="faq-answer">ના, આ સંપૂર્ણ હર્બલ ઉત્પાદન છે waarin કોઈ કેમિકલ્સ અથવા હાનિકારક ઘટકો નથી.</div>
+    </div>
 
-      fetch("{% url 'index' %}", {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      })
-        .then(r => r.json())
-        .then(data => {
-          if (data.success) {
-            window.location.href = thankYouUrl;
-          } else {
-            alert(data.error || 'Error occurred. Please try again.');
-          }
-        })
-        .catch(err => {
-          console.error('Form submission error:', err);
-          window.location.href = thankYouUrl;
-        });
-    });
-  </script>
+    <div class="faq-item">
+      <div class="faq-question">કેટલા દિવસમાં અસર દેખાશે? <span>+</span></div>
+      <div class="faq-answer">બહુમતી ગ્રાહકોને 10-15 દિવસમાં જ બ્લડ શુગરમાં સુધારો અનુભવાય છે, પરંતુ નિયમિત ઉપયોગ જરૂરી
+        છે.</div>
+    </div>
 
+    <div class="faq-item">
+      <div class="faq-question">ડિલિવરી ક્યારે થશે? <span>+</span></div>
+      <div class="faq-answer">ભારતના મોટાભાગના વિસ્તારોમાં 3-5 કાર્યકારી દિવસમાં ડિલિવરી કરવામાં આવે છે.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Return & Refund Policy</a>
+    </div>
+    <p>Disclaimer⚠️ - Herbal Diab Care Tablet is a herbal supplement. The results may vary depending on individual
+      health conditions.</p>
+    <p>&copy; 2025 Herbal Diab Care. Crafted with 💚 Ayurveda & Trust.</p>
+  </footer>
+
+  <script src="{% static 'main/js/script.js' %}"></script>
 </body>
 
 </html>
