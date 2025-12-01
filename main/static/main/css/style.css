@@ -1,5 +1,5 @@
 /* ===================================
-   MODERN PREMIUM THEME - HERBAL DIAB CARE
+   MODERN PREMIUM THEME - PYTO ATOMY
    =================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap');
@@ -11,7 +11,7 @@
   --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --accent-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   --dark-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  
+
   --bg-primary: #0f0f23;
   --bg-secondary: #1a1a2e;
   --bg-card: rgba(255, 255, 255, 0.05);
@@ -19,17 +19,17 @@
   --text-secondary: #b8b8d1;
   --accent-color: #764ba2;
   --success-color: #43e97b;
-  
+
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.3);
   --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.4);
-  
+
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
   --border-radius-xl: 32px;
-  
+
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,7 +59,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 20%, rgba(67, 233, 123, 0.05) 0%, transparent 50%);
@@ -68,8 +68,15 @@ body::before {
 }
 
 @keyframes bgPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* ===== HEADER ===== */
@@ -94,6 +101,7 @@ header {
     transform: translateY(-100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -121,6 +129,7 @@ header {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -141,10 +150,13 @@ header {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 0 40px rgba(67, 233, 123, 0.4);
   }
+
   50% {
     transform: scale(1.05);
     box-shadow: 0 0 60px rgba(67, 233, 123, 0.6);
@@ -170,7 +182,7 @@ header {
   font-weight: 500;
 }
 
-.hero-content > p:not(.tagline) {
+.hero-content>p:not(.tagline) {
   font-size: 18px;
   color: var(--text-secondary);
   margin-bottom: 32px;
@@ -268,6 +280,7 @@ header {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -301,8 +314,15 @@ header {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .hero-offer-card p {
@@ -1049,164 +1069,409 @@ footer {
 
 footer p {
   color: var(--text-secondary);
-  font-size: 14px;
-  margin-bottom: 12px;
-  line-height: 1.7;
-}
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1024px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 80px 40px;
-    gap: 40px;
+  .order-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
   }
-  
-  .hero h1 {
-    font-size: 48px;
-  }
-  
-  .doctor-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .offer-section {
-    grid-template-columns: 1fr;
-    padding: 60px 40px;
-  }
-  
-  section {
-    padding: 80px 40px;
-  }
-  
-  .stats-section {
-    padding: 60px 40px;
-  }
-  
-  .comparison-wrapper {
-    padding: 80px 40px;
-  }
-  
-  .doctor-section {
-    padding: 80px 40px;
-  }
-  
-  footer {
-    padding: 40px 40px 20px;
-  }
-}
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 60px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 36px;
-  }
-  
-  .tagline {
-    font-size: 20px;
-  }
-  
-  .section-title {
-    font-size: 36px;
-  }
-  
-  .hero-points {
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .info-split {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
-  .benefit-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
+  /* ===== INGREDIENT GRID ===== */
   .ingredient-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
   }
-  
+
+  .ingredient-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 32px;
+    text-align: center;
+    transition: var(--transition-smooth);
+  }
+
+  .ingredient-card:hover {
+    transform: translateY(-12px) rotate(2deg);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(102, 126, 234, 0.4);
+  }
+
+  .ingredient-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid rgba(67, 233, 123, 0.3);
+    transition: var(--transition-smooth);
+  }
+
+  .ingredient-card:hover img {
+    transform: scale(1.1);
+    border-color: rgba(67, 233, 123, 0.6);
+  }
+
+  .ingredient-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .ingredient-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+
+  /* ===== TESTIMONIALS ===== */
   .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
   }
-  
-  section {
-    padding: 60px 20px;
-  }
-  
-  .stats-section {
-    padding: 40px 20px;
-  }
-  
-  .comparison-wrapper {
-    padding: 60px 20px;
-  }
-  
-  .doctor-section {
-    padding: 60px 20px;
-  }
-  
-  .offer-section {
-    padding: 40px 20px;
-  }
-  
-  .offer-content h2 {
-    font-size: 40px;
-  }
-  
-  footer {
-    padding: 40px 20px 20px;
-  }
-  
-  .footer-links {
-    flex-direction: column;
-    gap: 16px;
-  }
-}
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 28px;
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 32px;
+    transition: var(--transition-smooth);
+    position: relative;
   }
-  
-  .tagline {
-    font-size: 18px;
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+    color: rgba(102, 126, 234, 0.2);
+    font-family: Georgia, serif;
+    line-height: 1;
   }
-  
-  .section-title {
-    font-size: 28px;
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(102, 126, 234, 0.3);
   }
-  
-  .btn-primary {
-    padding: 16px 32px;
+
+  .testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+  }
+
+  .testimonial-card p {
     font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
   }
-  
-  .ingredient-grid {
-    grid-template-columns: 1fr;
+
+  .testimonial-card h4 {
+    font-size: 16px;
+    color: var(--success-color);
+    font-weight: 600;
   }
-  
-  .offer-content h2 {
-    font-size: 32px;
+
+  /* ===== FAQ ===== */
+  .faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: var(--transition-fast);
   }
-  
-  .comparison-table th,
-  .comparison-table td {
-    padding: 16px 12px;
+
+  .faq-item:hover {
+    border-color: rgba(102, 126, 234, 0.3);
+  }
+
+  .faq-question {
+    padding: 24px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+  }
+
+  .faq-question:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .faq-question span {
+    font-size: 24px;
+    color: var(--accent-color);
+    transition: var(--transition-fast);
+  }
+
+  .faq-answer {
+    padding: 0 32px 24px 32px;
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    display: none;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .faq-item.active .faq-question span {
+    transform: rotate(45deg);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 60px 80px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 16px;
+    transition: var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--text-primary);
+  }
+
+  footer p {
+    color: var(--text-secondary);
     font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.7;
   }
-}
+
+  /* ===== RESPONSIVE DESIGN ===== */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 80px 40px;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-points {
+      justify-content: center;
+    }
+
+    .hero-product {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .doctor-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .doctor-points {
+      align-items: center;
+    }
+
+    .offer-section {
+      grid-template-columns: 1fr;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    section {
+      padding: 80px 40px;
+    }
+
+    .stats-section {
+      padding: 60px 40px;
+    }
+
+    .comparison-wrapper {
+      padding: 80px 40px;
+    }
+
+    .doctor-section {
+      padding: 80px 40px;
+    }
+
+    footer {
+      padding: 40px 40px 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+    .tagline {
+      font-size: 20px;
+    }
+
+    .section-title {
+      font-size: 32px;
+    }
+
+    .hero-points {
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .info-split {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .benefit-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .ingredient-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .stats-section {
+      padding: 40px 20px;
+    }
+
+    .comparison-wrapper {
+      padding: 60px 20px;
+    }
+
+    .doctor-section {
+      padding: 60px 20px;
+    }
+
+    .offer-section {
+      padding: 40px 20px;
+    }
+
+    .offer-content h2 {
+      font-size: 36px;
+    }
+
+    footer {
+      padding: 40px 20px 20px;
+    }
+
+    .footer-links {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    .tagline {
+      font-size: 18px;
+    }
+
+    .section-title {
+      font-size: 26px;
+    }
+
+    .btn-primary {
+      padding: 16px 32px;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .ingredient-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .offer-content h2 {
+      font-size: 28px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px 10px;
+      font-size: 13px;
+    }
+
+    .hero-offer-card {
+      padding: 16px;
+      right: 10px;
+      top: 10px;
+    }
+
+    .hero-offer-card h3 {
+      font-size: 24px;
+    }
+  }}
