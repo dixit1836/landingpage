@@ -16,307 +16,380 @@
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="top-banner">
-      <p>🌿 Pyto Atomy™ • ડાયાબિટીસ માટે શ્રેષ્ઠ આયુર્વેદિક ઉપાય 🌿</p>
-    </div>
-  </header>
+  <div class="ambient-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="badge">🌿 100% આયુર્વેદિક ફોર્મ્યુલા</div>
-      <h1>Pyto Atomy™</h1>
-      <p class="tagline">ડાયાબિટીસ માટે શ્રેષ્ઠ આયુર્વેદિક ઉપાય</p>
-      <p>બ્લડ શુગર સંતુલિત રાખો, ઈન્સુલિન ઉત્પન્નને પ્રોત્સાહિત કરો અને એનર્જી વધારો.</p>
-      <ul class="hero-points">
-        <li>1,00,000+ સંતોષિત ગ્રાહકો</li>
-        <li>કોઈ સાઇડ ઈફેક્ટ નથી</li>
-        <li>ડોક્ટર રિંગ્મેંટ</li>
-      </ul>
-      <div class="hero-cta">
-        <a href="#order" class="btn-primary">Order Now</a>
-      </div>
-    </div>
-    <div class="hero-product">
-      <img src="{% static 'main/images/img166.jpg' %}" alt="Pyto Atomy Pack"
-        onerror="this.src='https://placehold.co/500x500/667eea/ffffff?text=Pyto+Atomy';">
-    </div>
-  </section>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Pyto Atomy<span class="dot">.</span></a>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <h3>1,00,000+</h3>
-        <p>સંતોષિત ગ્રાહકો</p>
-      </div>
-      <div class="stat-card">
-        <h3>100%</h3>
-        <p>આયુર્વેદિક ઘટકો</p>
-      </div>
-      <div class="stat-card">
-        <h3>10-15 દિવસ</h3>
-        <p>પરિણામનો સમય</p>
-      </div>
-      <div class="stat-card">
-        <h3>0</h3>
-        <p>સાઇડ ઈફેક્ટ્સ</p>
-      </div>
-    </div>
-  </section>
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="section-header">
-      <h2 class="section-title">ડાયાબિટીસ શું છે ?</h2>
-      <p>ડાયાબિટીસ એ એવી સ્થિતિ છે જેમાં શરીર પૂરતું ઇન્સુલિન ઉત્પન્ન નથી કરતું અથવા તેનું યોગ્ય રીતે ઉપયોગ કરી શકતું
-        નથી. પરિણામે બ્લડ શુગરનું સ્તર વધે છે અને આંખો, કિડની અને હૃદય પર અસર પડે છે.</p>
-    </div>
-  </section>
-
-  <!-- Types & Symptoms -->
-  <section id="types" class="info-split">
-    <article class="info-panel">
-      <h3>લક્ષણો (Symptoms)</h3>
-      <ul class="symptom-list">
-        <li>
-          <span class="symptom-icon">👁️</span>
-          <div>
-            <strong>આંખ માં જાંખુ દેખાવું</strong>
-            <p>બ્લડ શુગર વધવાથી દૃષ્ટિ પર અસર.</p>
-          </div>
-        </li>
-        <li>
-          <span class="symptom-icon">🦶</span>
-          <div>
-            <strong>પગ માં ખારી ચડવી</strong>
-            <p>તંત્રિકાઓમાં ઝણઝણાટ અને દુખાવો.</p>
-          </div>
-        </li>
-        <li>
-          <span class="symptom-icon">💤</span>
-          <div>
-            <strong>થાક અને ઊર્જાનો અભાવ</strong>
-            <p>શરીરને પુરતી એનર્જી ન મળવાથી થાક.</p>
-          </div>
-        </li>
-      </ul>
-    </article>
-    <article class="info-panel">
-      <h3>આયુર્વેદિક દૃષ્ટિએ</h3>
-      <p>આયુર્વેદમાં ડાયાબિટીસને "મધુમેહ" કહે છે. અયોગ્ય આહાર, તાણ અને દોશ અસંતુલનથી આ સ્થિતિ થાય છે. Pyto Atomy™
-        દોશોને સંતુલિત કરીને શુગર અને એનર્જી સ્તરને કુદરતી રીતે સંતુલિત કરે છે.</p>
-    </article>
-  </section>
-
-  <!-- Benefits Section -->
-  <section id="benefits">
-    <h2 class="section-title">મુખ્ય ફાયદા</h2>
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <img src="{% static 'main/images/img179.jpg' %}" alt="Blood Sugar Control">
-        <h3>બ્લડ શુગર કંટ્રોલ કરે છે</h3>
-        <p>શ્વાસ અને શુગર સ્તરને સ્થિર રાખવા કુદરતી ટેકો આપે છે.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="{% static 'main/images/img165.jpg' %}" alt="Energy Boost">
-        <h3>એનર્જી વધારવે છે</h3>
-        <p>થાક ઓછો કરીને દિવસભર તાજગી અને ઉર્જા પૂરી પાડે છે.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="{% static 'main/images/img182.jpg' %}" alt="Insulin Production">
-        <h3>ઈન્સુલિન ઉત્પન્ન કરે છે</h3>
-        <p>સ્વાદુપિંડને સક્રિય કરી કુદરતી ઇન્સુલિન ઉત્પન્ન વધારવામાં મદદ કરે છે.</p>
-      </div>
-      <div class="benefit-card">
-        <img src="{% static 'main/images/img193.jpg' %}" alt="Blood Pressure Support">
-        <h3>બ્લડ પ્રેશર સંતુલિત રાખે છે</h3>
-        <p>બ્લડ પ્રેશરને સ્થિર રાખી હૃદયને કુદરતી રીતે સુરક્ષિત કરે છે.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison Section -->
-  <section class="comparison-wrapper">
-    <h2 class="section-title">Pyto Atomy vs અન્ય દવાઓ</h2>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Pyto Atomy™</th>
-          <th>અન્ય દવાઓ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>✅ 100% આયુર્વેદિક અને કુદરતી</td>
-          <td>❌ કૃત્રિમ કેમિકલ્સ ધરાવે છે</td>
-        </tr>
-        <tr>
-          <td>✅ સ્વાભાવિક શુગર કંટ્રોલ</td>
-          <td>❌ ફક્ત તાત્કાલિક અસર</td>
-        </tr>
-        <tr>
-          <td>✅ કોઈ સાઇડ ઈફેક્ટ નથી</td>
-          <td>❌ કિડની પર પ્રભાવ</td>
-        </tr>
-        <tr>
-          <td>✅ 50,000+ ગ્રાહકો દ્વારા વિશ્વસનીય</td>
-          <td>❌ સાબિતી વગરના દાવા</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Doctor Section -->
-  <section class="doctor-section">
-    <div class="doctor-container">
-      <div class="doctor-img">
-        <div class="video-box">
-          <div class="video-poster">
-            <img src="{% static 'main/doctor.png' %}" alt="Dr. Ruchita"
-              onerror="this.src='https://placehold.co/600x360/667eea/ffffff?text=Doctor+Video';">
-            <button class="play-button" aria-label="Play doctor video">▶</button>
-          </div>
-          <p class="video-caption">Doctor Recommended • Watch how Pyto Atomy™ balances blood sugar naturally.</p>
+      <div class="nav-menu">
+        <div class="nav-internal">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">Science</a>
+          <a href="#benefits" class="nav-link">Benefits</a>
+          <a href="#reviews" class="nav-link">Stories</a>
+          <a href="#order" class="btn-nav">Order Now</a>
         </div>
       </div>
-      <div class="doctor-content">
-        <p class="doctor-badge">Doctor Recommended</p>
-        <h2>"Pyto Atomy™ helps naturally balance blood sugar without side effects."</h2>
-        <p class="doctor-name">- Dr. Ruchita • B.A.M.S</p>
-        <ul class="doctor-points">
-          <li>Clinically Tested</li>
-          <li>100% Natural</li>
-          <li>Trusted by Experts</li>
-        </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="container hero-wrapper">
+      <div class="hero-text" data-animate="fade-up">
+        <div class="badge-pill">
+          <span class="badge-icon">🌿</span>
+          <span>100% આયુર્વેદિક ફોર્મ્યુલા</span>
+        </div>
+
+        <h1 class="hero-title">
+          ડાયાબિટીસ મુક્ત જીવન<br>
+          <span class="gradient-text">કુદરતી રીતે.</span>
+        </h1>
+
+        <p class="hero-desc">
+          બ્લડ શુગર સંતુલિત રાખો, ઈન્સુલિન ઉત્પન્નને પ્રોત્સાહિત કરો અને એનર્જી વધારો. વિજ્ઞાન અને આયુર્વેદનો શ્રેષ્ઠ
+          સંગમ.
+        </p>
+
+        <div class="trust-row">
+          <span class="trust-tag">⭐ 4.9/5 Rating</span>
+          <span class="trust-tag">👨‍⚕️ Doctor Verified</span>
+          <span class="trust-tag">🌱 100% Natural</span>
+        </div>
+
+        <div class="cta-stack">
+          <a href="#order" class="btn-primary">
+            <span>Order Now</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <!-- <a href="#doctor-video" class="btn-glass">
+            <span>Watch Story</span>
+            <span class="play-icon-sm">▶</span>
+          </a> -->
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-scroller">
+        <div class="stat-card">
+          <h3>1L+</h3>
+          <p>Happy Users</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <h3>100%</h3>
+          <p>Ayurvedic</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <h3>7 Days</h3>
+          <p>Results Start</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <h3>0%</h3>
+          <p>Side Effects</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <h2 class="h2-title">Why Pyto Atomy?</h2>
+        <p class="subtitle">ડાયાબિટીસ એ માત્ર શુગર નથી, શરીરના મુખ્ય અંગો પર અસર કરતી ગંભીર સ્થિતિ છે.</p>
+      </div>
+
+      <div class="split-layout">
+        <div class="glass-panel" data-animate="fade-up">
+          <div class="panel-head">
+            <h3>⚠️ લક્ષણો (Symptoms)</h3>
+          </div>
+          <div class="list-vertical">
+            <div class="list-item">
+              <div class="icon-circle warning">👁️</div>
+              <div>
+                <h4>દૃષ્ટિ પર અસર</h4>
+                <p>આંખ માં જાંખુ દેખાવું.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="icon-circle warning">⚡</div>
+              <div>
+                <h4>નર્વસ સિસ્ટમ</h4>
+                <p>પગ માં ખારી ચડવી.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="icon-circle warning">💤</div>
+              <div>
+                <h4>ક્રોનિક થાક</h4>
+                <p>શરીરમાં એનર્જીનો અભાવ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel highlight-panel" data-animate="fade-up" data-delay="100">
+          <div class="panel-head">
+            <h3>🌿 આયુર્વેદિક ઉકેલ</h3>
+          </div>
+          <p class="highlight-p">
+            Pyto Atomy™ "મધુમેહ" ને મૂળથી સંબોધે છે. તે માત્ર શુગર ઘટાડતું નથી, પણ સ્વાદુપિંડ (Pancreas) ને સક્રિય કરે
+            છે.
+          </p>
+          <div class="mini-grid">
+            <div class="mini-chip">✅ Sugar Control</div>
+            <div class="mini-chip">✅ Insulin Boost</div>
+            <div class="mini-chip">✅ Detox</div>
+            <div class="mini-chip">✅ Immunity</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Offer Section -->
-  <section id="order" class="offer-section">
-    <div class="offer-content">
-      <p>🎁 Limited Time Offer – Hurry Up!</p>
-      <p>પ્રારંભિક પેક</p>
-      <div class="delivery-tag">🚚 Free Home Delivery • 3-5 દિવસમાં ડિલિવરી</div>
-      <a href="#order" class="btn-outline">ORDER PLACE</a>
-    </div>
-
-    <form class="order-form" method="POST" action="{% url 'index' %}">
-      {% csrf_token %}
-      <input type="text" name="name" placeholder="તમારું નામ" required>
-      <input type="tel" name="mobile" placeholder="મોબાઇલ નંબર" required>
-      <input type="text" name="address" placeholder="સરનામું" required>
-      <input type="text" name="pincode" placeholder="પિનકોડ" required>
-
-      <button type="submit" class="btn-primary">ઓર્ડર કરો</button>
-    </form>
-  </section>
-
-  <!-- Ingredients Section -->
-  <section id="ingredients">
-    <h2 class="section-title">મુખ્ય ઘટકો</h2>
-    <div class="ingredient-grid">
-      <div class="ingredient-card">
-        <img src="{% static 'main/images/img181.jpg' %}" alt="Jamun">
-        <h3>જામુન(સીઝીજિયમ ક્યુમીની (લીન) સ્કિલ્સ )</h3>
-        <p>બ્લડ શુગર અને ભૂખ નિયંત્રણમાં મદદરૂપ.</p>
+  <section id="benefits" class="section bg-dim">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="h2-title">Health Benefits</h2>
+        <p class="subtitle">તમારા શરીર માટે સંપૂર્ણ સુરક્ષા કવચ.</p>
       </div>
-      <div class="ingredient-card">
-        <img src="{% static 'main/images/img180.jpg' %}" alt="Methi">
-        <h3>મેથી(તટ્રિગોનેલા ફોએનમ-ગ્રેકમ લીન)</h3>
-        <p>ઈન્સુલિન સેન્સિટિવિટી વધારે છે.</p>
-      </div>
-      <div class="ingredient-card">
-        <img src="{% static 'main/images/img157.jpg' %}" alt="Karela">
-        <h3>શ્વેતચંદન (સેન્ટલમ આલ્બમ લીન)</h3>
-        <p>ઇન્સ્યુલિનના સ્ત્રાવને વધારવામાં મદદરૂપ.</p>
-      </div>
-      <div class="ingredient-card">
-        <img src="{% static 'main/images/img192.jpg' %}" alt="Neem Leaves">
-        <h3>તુલસી(ઓસીમમ ગર્ભગૃહ લીન)</h3>
-        <p>ડિટોક્સ અને ઇમ્યુન સિસ્ટમ મજબૂત કરે છે.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Testimonials -->
-  <section id="reviews">
-    <h2 class="section-title">ગ્રાહકોના અનુભવ</h2>
-    <div class="testimonials-grid">
+      <div class="card-scroller">
+        <div class="benefit-card" data-animate="fade-left">
+          <div class="card-img">
+            <img src="{% static 'main/images/img179.jpg' %}" alt="Sugar Control" loading="lazy"
+              onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Sugar';">
+          </div>
+          <div class="card-content">
+            <h3>Sugar Control</h3>
+            <p>શ્વાસ અને શુગર સ્તરને સ્થિર રાખવા કુદરતી ટેકો આપે છે.</p>
+          </div>
+        </div>
 
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img111.jpg' %}" alt="Rameshbhai Patel">
-        <p>"Pyto Atomy™ લીધા પછી 12 દિવસમાં મારી શુગર 180 થી 130 પર આવી. કોઈ સાઇડ ઈફેક્ટ અનુભવાયો નથી."</p>
-        <h4>- રમેશભાઈ પટેલ</h4>
-      </article>
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img112.jpg' %}" alt="Sunitaben Shah">
-        <p>"હવે રોજિંદી એનર્જી ઘણી વધી ગઈ છે."</p>
-        <h4>- સુનિતાબેન શાહ</h4>
-      </article>
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img113.jpg' %}" alt="Vijay Singh">
-        <p>"મારા ડોક્ટરે ભલામણ કરી હતી અને આજે હું ઇન્સુલિન પર નિર્ભરતા ઘટાડવામાં સફળ થયો છું."</p>
-        <h4>- વિજય સિંહ</h4>
-      </article>
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img114.jpg' %}" alt="Neha Patel">
-        <p>"સૂક્ષ્મ નિયંત્રણ સાથે મારા બ્લડ પ્રેશર અને શુગર બંને સ્થિર થયા છે. સવારે વધુ ફ્રેશ લાગે છે."</p>
-        <h4>- નેહા પટેલ</h4>
-      </article>
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img115.jpg' %}" alt="Anil Mehta">
-        <p>"નિયમિત માત્રા પછી HbA1c 8.4 થી 7.1 પર આવ્યું. કોઇ માઠી અસર અનુભવાઈ નથી."</p>
-        <h4>- અનિલ મહેતા</h4>
-      </article>
-      <article class="testimonial-card">
-        <img src="{% static 'main/images/img116.jpg' %}" alt="Pooja Desai">
-        <p>"આયુર્વેદિક હોવાથી મને વિશ્વાસ હતો. હવે થાક ઓછો છે અને ડાયટીંગ સરળ બની ગયું છે."</p>
-        <h4>- પૂજા દેસાઈ</h4>
-      </article>
+        <div class="benefit-card" data-animate="fade-left" data-delay="50">
+          <div class="card-img">
+            <img src="{% static 'main/images/img165.jpg' %}" alt="Energy" loading="lazy"
+              onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Energy';">
+          </div>
+          <div class="card-content">
+            <h3>Energy Boost</h3>
+            <p>થાક ઓછો કરીને દિવસભર તાજગી અને ઉર્જા પૂરી પાડે છે.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card" data-animate="fade-left" data-delay="100">
+          <div class="card-img">
+            <img src="{% static 'main/images/img182.jpg' %}" alt="Insulin" loading="lazy"
+              onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Insulin';">
+          </div>
+          <div class="card-content">
+            <h3>Insulin Support</h3>
+            <p>સ્વાદુપિંડને સક્રિય કરી ઇન્સુલિન વધારવામાં મદદ કરે છે.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card" data-animate="fade-left" data-delay="150">
+          <div class="card-img">
+            <img src="{% static 'main/images/img193.jpg' %}" alt="Heart" loading="lazy"
+              onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Heart';">
+          </div>
+          <div class="card-content">
+            <h3>Heart Health</h3>
+            <p>બ્લડ પ્રેશરને સ્થિર રાખી હૃદયને સુરક્ષિત કરે છે.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2 class="section-title">વારંવાર પૂછાતા પ્રશ્નો (FAQ)</h2>
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <h2 class="h2-title">Natural Ingredients</h2>
+      </div>
+      <div class="ingredients-grid">
 
-    <div class="faq-item">
-      <div class="faq-question">Pyto Atomy શું છે? <span>+</span></div>
-      <div class="faq-answer">Pyto Atomy™ એક 100% આયુર્વેદિક ટેબ્લેટ છે જે બ્લડ શુગરને સ્વાભાવિક રીતે કંટ્રોલ
-        કરવામાં મદદ કરે છે અને શરીરના ચયાપચયને સંતુલિત કરે છે.</div>
+        <!-- Shilajit -->
+        <div class="ing-card" data-animate="zoom-in">
+          <img src="{% static 'main/images/shilajit.jpg' %}" alt="Shilajit"
+            onerror="this.src='https://placehold.co/150x150/4CAF50/ffffff?text=S';">
+          <h4>Shilajit</h4>
+          <span>Energy & Metabolism</span>
+        </div>
+
+        <!-- Tulsi -->
+        <div class="ing-card" data-animate="zoom-in" data-delay="50">
+          <img src="{% static 'main/images/tulsi.jpg' %}" alt="Tulsi"
+            onerror="this.src='https://placehold.co/150x150/009688/ffffff?text=T';">
+          <h4>Tulsi</h4>
+          <span>Immunity & Sugar Balance</span>
+        </div>
+
+        <!-- Haritaki -->
+        <div class="ing-card" data-animate="zoom-in" data-delay="100">
+          <img src="{% static 'main/images/haritaki.jpg' %}" alt="Haritaki"
+            onerror="this.src='https://placehold.co/150x150/8BC34A/ffffff?text=H';">
+          <h4>Haritaki</h4>
+          <span>Digestion & Detox</span>
+        </div>
+
+        <!-- Amla -->
+        <div class="ing-card" data-animate="zoom-in" data-delay="150">
+          <img src="{% static 'main/images/amla.jpg' %}" alt="Amla"
+            onerror="this.src='https://placehold.co/150x150/FFC107/ffffff?text=A';">
+          <h4>Amla</h4>
+          <span>Vitamin C & Sugar Support</span>
+        </div>
+
+      </div>
+      <table class="premium-table">
+        <thead>
+          <tr>
+            <th>Compare</th>
+            <th class="brand-col">Pyto Atomy™</th>
+            <th>Others</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Formula</td>
+            <td class="brand-col">🌿 100% Natural</td>
+            <td>🧪 Chemical</td>
+          </tr>
+          <tr>
+            <td>Safety</td>
+            <td class="brand-col">✅ No Side Effects</td>
+            <td>⚠️ Risky</td>
+          </tr>
+          <tr>
+            <td>Result</td>
+            <td class="brand-col">🛡️ Long Term</td>
+            <td>⏱️ Temporary</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <div class="faq-item">
-      <div class="faq-question">શું કોઈ સાઇડ ઈફેક્ટ છે? <span>+</span></div>
-      <div class="faq-answer">ના, આ સંપૂર્ણ હર્બલ ઉત્પાદન છે જેમાં કોઈ કેમિકલ્સ અથવા હાનિકારક ઘટકો નથી.</div>
     </div>
-
-    <div class="faq-item">
-      <div class="faq-question">કેટલા દિવસમાં અસર દેખાશે? <span>+</span></div>
-      <div class="faq-answer">બહુમતી ગ્રાહકોને 10-15 દિવસમાં જ બ્લડ શુગરમાં સુધારો અનુભવાય છે, પરંતુ નિયમિત ઉપયોગ જરૂરી
-        છે.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">ડિલિવરી ક્યારે થશે? <span>+</span></div>
-      <div class="faq-answer">ભારતના મોટાભાગના વિસ્તારોમાં 3-5 કાર્યકારી દિવસમાં ડિલિવરી કરવામાં આવે છે.</div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <h2 class="h2-title center">Success Stories</h2>
+      <div class="review-scroller">
+        <div class="review-card glass-panel">
+          <div class="review-head">
+            <img src="{% static 'main/images/img111.jpg' %}" alt="User"
+              onerror="this.src='https://placehold.co/50x50/333/fff?text=R';">
+            <div>
+              <strong>Rameshbhai</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"12 દિવસમાં મારી શુગર 180 થી 130 પર આવી. અમેઝિંગ પરિણામ!"</p>
+        </div>
+        <div class="review-card glass-panel">
+          <div class="review-head">
+            <img src="{% static 'main/images/img112.jpg' %}" alt="User"
+              onerror="this.src='https://placehold.co/50x50/333/fff?text=S';">
+            <div>
+              <strong>Sunitaben</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"હવે રોજિંદી એનર્જી ઘણી વધી ગઈ છે અને થાક નથી લાગતો."</p>
+        </div>
+        <div class="review-card glass-panel">
+          <div class="review-head">
+            <img src="{% static 'main/images/img113.jpg' %}" alt="User"
+              onerror="this.src='https://placehold.co/50x50/333/fff?text=V';">
+            <div>
+              <strong>Vijay Singh</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p>"ઇન્સુલિન પર નિર્ભરતા ઘટાડવામાં સફળ થયો છું."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="section">
+    <div class="container narrow-width">
+      <div class="order-card glass-panel border-glow" data-animate="zoom-in">
+        <div class="offer-banner">Limited Time Offer 🎁</div>
+
+        <div class="order-header">
+          <h2>Place Your Order</h2>
+          <p>Free Home Delivery within 3-5 days</p>
+          <div class="price-tag">
+            <!-- <span class="cut-price">₹1999</span>
+                <span class="final-price">₹999</span> -->
+          </div>
+        </div>
+
+        <form class="premium-form" method="POST" action="{% url 'index' %}">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" name="name" placeholder=" " required>
+            <label>Full Name</label>
+          </div>
+
+          <div class="input-group">
+            <input type="tel" name="mobile" placeholder=" " pattern="[0-9]{10}" required>
+            <label>Mobile Number</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" name="address" placeholder=" " required>
+            <label>Full Address</label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" name="pincode" placeholder=" " pattern="[0-9]{6}" required>
+            <label>Pincode</label>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Confirm Order - Cash on Delivery
+          </button>
+          <p class="form-note">🔒 Secure Checkout • 100% Genuine</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Return & Refund Policy</a>
+    <div class="container">
+      <p class="brand-footer">Pyto Atomy™</p>
+      <div class="links">
+        <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Refund</a>
+      </div>
+      <p class="disclaimer">Disclaimer: Results may vary. Herbal Supplement.</p>
+      <p class="copy">&copy; 2025 Pyto Atomy.</p>
     </div>
-    <p>Disclaimer⚠️ - Pyto Atomy Tablet is a herbal supplement. The results may vary depending on individual
-      health conditions.</p>
-    <p>&copy; 2025 Pyto Atomy. Crafted with 💚 Ayurveda & Trust.</p>
   </footer>
 
   <script src="{% static 'main/js/script.js' %}"></script>
