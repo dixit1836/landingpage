@@ -24,14 +24,16 @@
 
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">Pyto Atomy<span class="dot">.</span></a>
-
       <button class="mobile-toggle" aria-label="Toggle Menu">
         <div class="hamburger">
           <span></span>
           <span></span>
         </div>
       </button>
+
+      <a href="#" class="logo">Pyto Atomy</a>
+
+      <a href="#order" class="btn-order-nav">Order Now</a>
 
       <div class="nav-menu">
         <div class="nav-internal">
@@ -179,7 +181,7 @@
       <div class="card-scroller">
         <div class="benefit-card" data-animate="fade-left">
           <div class="card-img">
-            <img src="{% static 'main/images/img179.jpg' %}" alt="Sugar Control" loading="lazy"
+            <img src="{% static 'main/images/sugar_control.png' %}" alt="Sugar Control" loading="lazy"
               onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Sugar';">
           </div>
           <div class="card-content">
@@ -190,7 +192,7 @@
 
         <div class="benefit-card" data-animate="fade-left" data-delay="50">
           <div class="card-img">
-            <img src="{% static 'main/images/img165.jpg' %}" alt="Energy" loading="lazy"
+            <img src="{% static 'main/images/energy_boost.png' %}" alt="Energy" loading="lazy"
               onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Energy';">
           </div>
           <div class="card-content">
@@ -201,7 +203,7 @@
 
         <div class="benefit-card" data-animate="fade-left" data-delay="100">
           <div class="card-img">
-            <img src="{% static 'main/images/img182.jpg' %}" alt="Insulin" loading="lazy"
+            <img src="{% static 'main/images/insulin_support.png' %}" alt="Insulin" loading="lazy"
               onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Insulin';">
           </div>
           <div class="card-content">
@@ -212,7 +214,7 @@
 
         <div class="benefit-card" data-animate="fade-left" data-delay="150">
           <div class="card-img">
-            <img src="{% static 'main/images/img193.jpg' %}" alt="Heart" loading="lazy"
+            <img src="{% static 'main/images/heart_health.png' %}" alt="Heart" loading="lazy"
               onerror="this.src='https://placehold.co/400x300/2a2a40/ffffff?text=Heart';">
           </div>
           <div class="card-content">
@@ -358,7 +360,8 @@
           </div>
 
           <div class="input-group">
-            <input type="tel" name="mobile" placeholder=" " pattern="[0-9]{10}" required>
+            <input type="tel" name="mobile" placeholder=" " pattern="[0-9]{10}" maxlength="10" inputmode="numeric"
+              required>
             <label>Mobile Number</label>
           </div>
 
@@ -368,7 +371,8 @@
           </div>
 
           <div class="input-group">
-            <input type="text" name="pincode" placeholder=" " pattern="[0-9]{6}" required>
+            <input type="text" name="pincode" id="pincode" placeholder=" " pattern="[0-9]{6}" maxlength="6"
+              inputmode="numeric" required>
             <label>Pincode</label>
           </div>
 

@@ -1,10 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Order
 
@@ -24,15 +25,6 @@ def index(request):
             if is_ajax:
                 return JsonResponse({'success': False, 'error': 'કૃપા કરીને બધી માહિતી ભરો!'}, status=400)
             messages.error(request, 'કૃપા કરીને બધી માહિતી ભરો!')
-            return render(request, "main/index.html")
-        
-        # Check if mobile number is already registered
-        existing_order = Order.objects.filter(mobile=mobile).first()
-        if existing_order:
-            error_message = f'આ મોબાઇલ નંબર ({mobile}) પહેલેથી રજિસ્ટર થયેલ છે!'
-            if is_ajax:
-                return JsonResponse({'success': False, 'error': error_message}, status=400)
-            messages.error(request, error_message)
             return render(request, "main/index.html")
         
         try:
@@ -56,8 +48,8 @@ def index(request):
             # Success message for regular form submission
             messages.success(request, f'ઓર્ડર સફળતાપૂર્વક સેવ થયો!')
             
-            # Redirect to thank you page
-            return redirect('thank_you')
+            # Redirect to home page instead of thank you page
+            return redirect('index')
         except Exception as e:
             if is_ajax:
                 return JsonResponse({'success': False, 'error': 'કોઈ ભૂલ આવી. કૃપા કરીને ફરી પ્રયાસ કરો.'}, status=500)
@@ -123,8 +115,8 @@ def logout_view(request):
 @login_required(login_url='login')
 def admin_panel(request):
     """Admin panel to view all orders"""
-    orders = Order.objects.all().order_by('-created_at')
-    total_orders = orders.count()
+    orders_list = Order.objects.all().order_by('-created_at')
+    total_orders = orders_list.count()
     
     # Count orders by status
     status_counts = {
@@ -137,6 +129,17 @@ def admin_panel(request):
         ('confirmed', 'Confirmed'),
     ]
     status_update_values = [value for value, _ in status_update_choices]
+    
+    # Pagination - 10 orders per page
+    paginator = Paginator(orders_list, 10)
+    page = request.GET.get('page', 1)
+    
+    try:
+        orders = paginator.page(page)
+    except PageNotAnInteger:
+        orders = paginator.page(1)
+    except EmptyPage:
+        orders = paginator.page(paginator.num_pages)
     
     context = {
         'orders': orders,
@@ -185,3 +188,36 @@ def update_order_status(request, order_id):
         'order_id': order.id,
         'previous_status': previous_status,
     })
+
+
+@login_required(login_url='login')
+@require_POST
+def confirm_order(request, order_id):
+    """Confirm an order (change status from pending to confirmed)"""
+    order = get_object_or_404(Order, pk=order_id)
+    
+    # Update status to confirmed
+    order.status = 'confirmed'
+    order.save(update_fields=['status'])
+    
+    messages.success(request, f'Order #{order.id} has been confirmed successfully!')
+    
+    # Redirect back to admin panel with the same page number if available
+    page = request.GET.get('page', '1')
+    return redirect(f"{request.META.get('HTTP_REFERER', '/admin-panel/')}")
+
+
+@login_required(login_url='login')
+@require_POST
+def delete_order(request, order_id):
+    """Delete an order"""
+    order = get_object_or_404(Order, pk=order_id)
+    order_id_display = order.id
+    
+    # Delete the order
+    order.delete()
+    
+    messages.success(request, f'Order #{order_id_display} has been deleted successfully!')
+    
+    # Redirect back to admin panel with the same page number if available
+    return redirect(f"{request.META.get('HTTP_REFERER', '/admin-panel/')}")

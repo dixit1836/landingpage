@@ -101,4 +101,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- 6. NUMERIC-ONLY VALIDATION FOR MOBILE AND PINCODE ---
+  const mobileInput = document.querySelector('input[name="mobile"]');
+  const pincodeInput = document.querySelector('input[name="pincode"]');
+
+  // Allow only numbers in mobile field
+  if (mobileInput) {
+    mobileInput.addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      if (this.value.length > 10) {
+        this.value = this.value.slice(0, 10);
+      }
+    });
+  }
+
+  // Allow only numbers in pincode field
+  if (pincodeInput) {
+    pincodeInput.addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      if (this.value.length > 6) {
+        this.value = this.value.slice(0, 6);
+      }
+    });
+  }
 });
