@@ -43,6 +43,22 @@
       font-weight: 600;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .current-date {
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
     .logout-btn {
       background: rgba(255, 255, 255, 0.2);
       border: 2px solid white;
@@ -246,6 +262,16 @@
         text-align: center;
       }
 
+      .header-right {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .current-date {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
       .stats-container {
         grid-template-columns: 1fr;
       }
@@ -281,10 +307,13 @@
     <!-- Header -->
     <div class="header">
       <h1>📊 Pyto Atomy - Orders Management</h1>
-      <form method="POST" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <button type="submit" class="logout-btn">Logout</button>
-      </form>
+      <div class="header-right">
+        <div class="current-date" id="currentDate"></div>
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      </div>
     </div>
 
     <!-- Stats Cards -->
@@ -343,15 +372,17 @@
               </span>
             </td>
             <td>
-              <form method="POST" style="display: inline;">
+              {% if order.status == 'pending' %}
+              <form method="POST" action="{% url 'confirm_order' order.id %}" style="display: inline;">
                 {% csrf_token %}
-                <input type="hidden" name="order_id" value="{{ order.id }}">
-                {% if order.status == 'pending' %}
-                <button type="submit" name="action" value="confirm" class="action-btn confirm-btn">
+                <button type="submit" class="action-btn confirm-btn">
                   Confirm
                 </button>
-                {% endif %}
-                <button type="submit" name="action" value="delete" class="action-btn delete-btn">
+              </form>
+              {% endif %}
+              <form method="POST" action="{% url 'delete_order' order.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="action-btn delete-btn">
                   Delete
                 </button>
               </form>
@@ -367,6 +398,20 @@
   </div>
 
   <script>
+    // Display current date
+    function updateDate() {
+      const dateElement = document.getElementById('currentDate');
+      const now = new Date();
+      const options = { 
+        weekday: 'short', 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      };
+      dateElement.textContent = '📅 ' + now.toLocaleDateString('en-US', options);
+    }
+    updateDate();
+
     // Search functionality
     document.getElementById('searchInput').addEventListener('keyup', function () {
       const searchValue = this.value.toLowerCase();

@@ -156,6 +156,25 @@ h4 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar scrolled state */
+.navbar.scrolled {
+  background: rgba(5, 5, 7, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.navbar.scrolled .logo {
+  color: white;
+}
+
+.navbar.scrolled .hamburger span {
+  background: white;
+}
+
+.navbar.scrolled .btn-order-nav {
+  background: white;
+  color: #000;
+}
+
 .nav-container {
   display: grid;
   grid-template-columns: 60px 1fr 120px;
@@ -676,7 +695,7 @@ h4 {
 .brand-col {
   background: rgba(99, 102, 241, 0.05);
   font-weight: 600;
-  color: white;
+  color: #000000;
   border-radius: 8px;
 }
 
