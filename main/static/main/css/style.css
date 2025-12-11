@@ -248,10 +248,13 @@ h4 {
   transform: translateX(-100%);
   transition: 0.4s var(--ease);
   padding-top: 70px;
+  z-index: 999;
+  visibility: hidden;
 }
 
 .nav-menu.active {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .nav-internal {
@@ -637,6 +640,11 @@ h4 {
   margin-bottom: 15px;
 }
 
+.ing-card span {
+  display: block;
+  line-height: 1.4;
+}
+
 /* Video & Table */
 .grid-50-50 {
   display: grid;
@@ -737,7 +745,7 @@ h4 {
 
 .offer-banner {
   background: var(--accent);
-  color: #000;
+  color: #ffffff;
   text-align: center;
   font-weight: 700;
   padding: 8px;
