@@ -197,9 +197,9 @@ h4 {
   color: var(--accent);
 }
 
-/* Mobile Hamburger - Always visible */
+/* Mobile Hamburger - Hidden by default (Desktop) */
 .mobile-toggle {
-  display: block;
+  display: none; /* Desktop: Hidden */
   background: none;
   border: none;
   cursor: pointer;
@@ -237,70 +237,46 @@ h4 {
   background: #333;
 }
 
-/* Hide order button when menu is open */
-.nav-menu.active ~ .btn-order-nav {
-  display: none;
-}
-
-/* Desktop Menu - Hidden by default, shown when hamburger clicked */
+/* Desktop Menu - Visible horizontal row by default */
 .nav-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  position: static;
+  width: auto;
+  height: auto;
+  background: transparent;
+  backdrop-filter: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  transform: translateX(-100%);
-  transition: 0.4s var(--ease);
-  z-index: 999;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-.nav-menu.active {
-  transform: translateX(0);
+  transform: none;
   visibility: visible;
+  overflow: visible;
 }
 
 .nav-internal {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 20px;
+  width: auto;
+  padding: 0;
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #000000; /* Dark text for desktop white header */
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.3rem;
+  font-weight: 500;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: #cccccc;
+  color: #666666;
 }
 
 .btn-nav {
-  padding: 12px 30px;
-  background: #ffffff;
-  border-radius: 50px;
-  text-decoration: none;
-  color: #000000;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  transition: 0.3s;
+  display: none; /* Hide 'Order Now' in menu for desktop, we have header button */
 }
 
 .btn-nav:hover {
@@ -586,10 +562,10 @@ h4 {
   font-weight: 600;
 }
 
-/* --- Benefits Section (Vertical Layout) --- */
+/* --- Benefits Section (Grid Layout) --- */
 .card-scroller {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
@@ -601,6 +577,8 @@ h4 {
   overflow: hidden;
   transition: 0.3s;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .benefit-card:hover {
@@ -726,10 +704,10 @@ h4 {
   border-radius: 8px;
 }
 
-/* Testimonials (Vertical Layout) */
+/* Testimonials (Grid Layout) */
 .review-scroller {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
@@ -926,6 +904,77 @@ footer {
 
 /* Tablet (1024px and down) */
 @media (max-width: 1024px) {
+  /* Restore Mobile Toggle */
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Restore Mobile Menu Drawer */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: 0.4s var(--ease);
+    z-index: 999;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav-internal {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .nav-link {
+    color: #ffffff;
+    font-size: 1.3rem;
+  }
+  
+  /* Show btn-nav inside menu on mobile */
+  .btn-nav {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    transition: 0.3s;
+  }
+
+  /* Hide header order button when menu is active (optional) */
+  .nav-menu.active ~ .btn-order-nav {
+    display: none;
+  }
+  
+  /* Layout Adjustments */
+  .card-scroller {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .review-scroller {
+    grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
+  }
+
   .hero-wrapper {
     grid-template-columns: 1fr;
     text-align: center;
