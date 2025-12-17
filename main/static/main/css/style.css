@@ -1181,17 +1181,22 @@ footer {
 
   /* Fix navbar on mobile */
   .nav-container {
-    grid-template-columns: 50px 1fr 100px;
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
   }
 
   .logo {
     font-size: 1.2rem;
+    flex-shrink: 0;
   }
 
   .btn-order-nav {
-    padding: 6px 12px;
+    padding: 8px 16px;
     font-size: 0.85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
