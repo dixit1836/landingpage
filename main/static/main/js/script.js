@@ -123,4 +123,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- 7. FORM SUBMISSION NOTIFICATION ---
+  const orderForm = document.querySelector('.premium-form');
+  const notification = document.getElementById('notification');
+
+  if (orderForm && notification) {
+    orderForm.addEventListener('submit', function(e) {
+      // Prevent form from submitting and redirecting
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      
+      // Send form data via AJAX
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => response.json())
+      .catch(error => console.log('Form submitted'));
+      
+      // Show notification
+      notification.classList.add('show');
+      
+      // Clear form fields
+      this.reset();
+      
+      // Hide notification after 5 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 5000);
+    });
+  }
 });

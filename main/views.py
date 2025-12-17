@@ -115,14 +115,48 @@ def logout_view(request):
 @login_required(login_url='login')
 def admin_panel(request):
     """Admin panel to view all orders"""
-    orders_list = Order.objects.all().order_by('-created_at')
-    total_orders = orders_list.count()
+    # Get status filter from query parameter
+    status_filter = request.GET.get('status', '').strip()
     
-    # Count orders by status
+    # Get date filter parameters
+    single_date = request.GET.get('date', '').strip()
+    start_date = request.GET.get('start_date', '').strip()
+    end_date = request.GET.get('end_date', '').strip()
+    
+    # Start with all orders for base filtering (without status filter)
+    base_orders = Order.objects.all()
+    
+    # Apply date filter to base orders
+    if single_date:
+        try:
+            from datetime import datetime
+            filter_date = datetime.strptime(single_date, '%Y-%m-%d').date()
+            base_orders = base_orders.filter(created_at__date=filter_date)
+        except ValueError:
+            pass
+    elif start_date and end_date:
+        try:
+            from datetime import datetime
+            start = datetime.strptime(start_date, '%Y-%m-%d').date()
+            end = datetime.strptime(end_date, '%Y-%m-%d').date()
+            base_orders = base_orders.filter(created_at__date__gte=start, created_at__date__lte=end)
+        except ValueError:
+            pass
+    
+    # Calculate stats based on filtered data (by date)
+    total_orders = base_orders.count()
     status_counts = {
-        'pending': Order.objects.filter(status='pending').count(),
-        'confirmed': Order.objects.filter(status='confirmed').count(),
+        'pending': base_orders.filter(status='pending').count(),
+        'confirmed': base_orders.filter(status='confirmed').count(),
     }
+    
+    # Now apply status filter for the orders list
+    orders_list = base_orders
+    if status_filter and status_filter in ['pending', 'confirmed']:
+        orders_list = orders_list.filter(status=status_filter)
+    
+    # Order by creation date
+    orders_list = orders_list.order_by('-created_at')
 
     status_update_choices = [
         ('pending', 'Pending'),
@@ -130,8 +164,8 @@ def admin_panel(request):
     ]
     status_update_values = [value for value, _ in status_update_choices]
     
-    # Pagination - 10 orders per page
-    paginator = Paginator(orders_list, 10)
+    # Pagination - 15 orders per page
+    paginator = Paginator(orders_list, 15)
     page = request.GET.get('page', 1)
     
     try:
@@ -147,6 +181,10 @@ def admin_panel(request):
         'status_counts': status_counts,
         'status_update_choices': status_update_choices,
         'status_update_values': status_update_values,
+        'current_status_filter': status_filter,
+        'current_date': single_date,
+        'current_start_date': start_date,
+        'current_end_date': end_date,
     }
     
     return render(request, "main/admin_panel.html", context)

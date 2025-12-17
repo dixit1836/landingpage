@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pyto Atomy - Orders Management</title>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <style>
     * {
       margin: 0;
@@ -26,7 +28,6 @@
       background: white;
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
     }
 
     .header {
@@ -36,6 +37,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .header h1 {
@@ -57,6 +62,19 @@
       background: rgba(255, 255, 255, 0.15);
       border-radius: 25px;
       border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .current-date:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+
+    .current-date.active-filter {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
     }
 
     .logout-btn {
@@ -83,6 +101,10 @@
       gap: 20px;
       padding: 30px;
       background: #f8f9fa;
+      position: sticky;
+      top: 98px;
+      z-index: 90;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .stat-card {
@@ -90,11 +112,22 @@
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      border: 3px solid transparent;
     }
 
     .stat-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-card.active {
+      border-color: #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     }
 
     .stat-card h3 {
@@ -116,6 +149,10 @@
       gap: 15px;
       align-items: center;
       border-bottom: 2px solid #f8f9fa;
+      position: sticky;
+      top: 268px;
+      z-index: 80;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .search-input,
@@ -182,6 +219,11 @@
       border-bottom: 2px solid #dee2e6;
       font-size: 14px;
       text-transform: uppercase;
+      position: sticky;
+      top: 0;
+      background: #f8f9fa;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     td {
@@ -255,6 +297,224 @@
       font-size: 18px;
     }
 
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 30px;
+      background: white;
+    }
+
+    .pagination a,
+    .pagination span {
+      padding: 10px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #495057;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .pagination a:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: translateY(-2px);
+    }
+
+    .pagination .current {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .pagination .disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .pagination-info {
+      text-align: center;
+      padding: 10px 30px;
+      color: #6c757d;
+      font-size: 14px;
+      background: white;
+    }
+
+    /* Date Filter Modal */
+    .date-filter-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .date-filter-modal.active {
+      display: flex;
+    }
+
+    .date-filter-content {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .date-filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .date-filter-header h2 {
+      color: #667eea;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: #6c757d;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: #dc3545;
+    }
+
+    .filter-mode-toggle {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mode-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #e9ecef;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: #495057;
+      transition: all 0.3s ease;
+    }
+
+    .mode-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .mode-btn:hover:not(.active) {
+      border-color: #667eea;
+      color: #667eea;
+    }
+
+    .date-inputs {
+      margin-bottom: 20px;
+    }
+
+    .date-input-group {
+      margin-bottom: 15px;
+    }
+
+    .date-input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #495057;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .date-input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .date-input-group input:focus {
+      border-color: #667eea;
+    }
+
+    .date-filter-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .apply-filter-btn,
+    .clear-filter-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .apply-filter-btn {
+      background: #667eea;
+      color: white;
+    }
+
+    .apply-filter-btn:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+    }
+
+    .clear-filter-btn {
+      background: #f8f9fa;
+      color: #495057;
+      border: 2px solid #e9ecef;
+    }
+
+    .clear-filter-btn:hover {
+      background: #e9ecef;
+    }
+
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
@@ -318,18 +578,21 @@
 
     <!-- Stats Cards -->
     <div class="stats-container">
-      <div class="stat-card">
+      <a href="{% url 'admin_panel' %}?{% if current_date %}date={{ current_date }}{% elif current_start_date and current_end_date %}start_date={{ current_start_date }}&end_date={{ current_end_date }}{% endif %}"
+        class="stat-card {% if not current_status_filter %}active{% endif %}">
         <h3>{{ total_orders }}</h3>
         <p>Total Orders</p>
-      </div>
-      <div class="stat-card">
+      </a>
+      <a href="{% url 'admin_panel' %}?status=pending{% if current_date %}&date={{ current_date }}{% elif current_start_date and current_end_date %}&start_date={{ current_start_date }}&end_date={{ current_end_date }}{% endif %}"
+        class="stat-card {% if current_status_filter == 'pending' %}active{% endif %}">
         <h3>{{ status_counts.pending }}</h3>
         <p>Pending</p>
-      </div>
-      <div class="stat-card">
+      </a>
+      <a href="{% url 'admin_panel' %}?status=confirmed{% if current_date %}&date={{ current_date }}{% elif current_start_date and current_end_date %}&start_date={{ current_start_date }}&end_date={{ current_end_date }}{% endif %}"
+        class="stat-card {% if current_status_filter == 'confirmed' %}active{% endif %}">
         <h3>{{ status_counts.confirmed }}</h3>
         <p>Confirmed</p>
-      </div>
+      </a>
     </div>
 
     <!-- Filters -->
@@ -337,10 +600,10 @@
       <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by name, mobile, or address...">
       <select id="statusFilter" class="filter-select">
         <option value="">All Status</option>
-        <option value="pending">Pending</option>
-        <option value="confirmed">Confirmed</option>
+        <option value="pending" {% if current_status_filter == 'pending' %}selected{% endif %}>Pending</option>
+        <option value="confirmed" {% if current_status_filter == 'confirmed' %}selected{% endif %}>Confirmed</option>
       </select>
-      <button onclick="location.reload()" class="refresh-btn">🔄 Refresh</button>
+      <button onclick="window.location.href='{% url 'admin_panel' %}'" class="refresh-btn">🔄 Refresh</button>
     </div>
 
     <!-- Orders Table -->
@@ -350,6 +613,7 @@
         <thead>
           <tr>
             <th>ID</th>
+            <th>Date</th>
             <th>Name</th>
             <th>Mobile</th>
             <th>Address</th>
@@ -362,6 +626,7 @@
           {% for order in orders %}
           <tr data-status="{{ order.status }}">
             <td>{{ order.id }}</td>
+            <td>{{ order.created_at|date:"M d, Y" }}</td>
             <td>{{ order.name }}</td>
             <td>{{ order.mobile }}</td>
             <td>{{ order.address }}</td>
@@ -395,63 +660,293 @@
       <p class="no-orders">No orders found.</p>
       {% endif %}
     </div>
+
+    <!-- Pagination Controls -->
+    {% if orders.has_other_pages %}
+    <div class="pagination-info">
+      Showing {{ orders.start_index }} to {{ orders.end_index }} of {{ orders.paginator.count }} orders
+    </div>
+    <div class="pagination">
+      {% if orders.has_previous %}
+      <a href="?page=1{% if current_status_filter %}&status={{ current_status_filter }}{% endif %}">First</a>
+      <a
+        href="?page={{ orders.previous_page_number }}{% if current_status_filter %}&status={{ current_status_filter }}{% endif %}">Previous</a>
+      {% else %}
+      <span class="disabled">First</span>
+      <span class="disabled">Previous</span>
+      {% endif %}
+
+      {% for num in orders.paginator.page_range %}
+      {% if orders.number == num %}
+      <span class="current">{{ num }}</span>
+      {% elif num > orders.number|add:'-3' and num < orders.number|add:'3' %} <a
+        href="?page={{ num }}{% if current_status_filter %}&status={{ current_status_filter }}{% endif %}">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if orders.has_next %}
+        <a
+          href="?page={{ orders.next_page_number }}{% if current_status_filter %}&status={{ current_status_filter }}{% endif %}">Next</a>
+        <a
+          href="?page={{ orders.paginator.num_pages }}{% if current_status_filter %}&status={{ current_status_filter }}{% endif %}">Last</a>
+        {% else %}
+        <span class="disabled">Next</span>
+        <span class="disabled">Last</span>
+        {% endif %}
+    </div>
+    {% endif %}
   </div>
 
+  <!-- Date Filter Modal -->
+  <div class="date-filter-modal" id="dateFilterModal">
+    <div class="date-filter-content">
+      <div class="date-filter-header">
+        <h2>📅 Filter by Date</h2>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+
+      <div class="filter-mode-toggle">
+        <button class="mode-btn active" id="singleDateBtn">Single Date</button>
+        <button class="mode-btn" id="dateRangeBtn">Date Range</button>
+      </div>
+
+      <div class="date-inputs">
+        <!-- Single Date Input -->
+        <div class="date-input-group" id="singleDateInput">
+          <label for="filterDate">Select Date</label>
+          <input type="text" id="filterDate" placeholder="Choose a date">
+        </div>
+
+        <!-- Date Range Inputs -->
+        <div id="dateRangeInputs" style="display: none;">
+          <div class="date-input-group">
+            <label for="filterStartDate">Start Date</label>
+            <input type="text" id="filterStartDate" placeholder="Choose start date">
+          </div>
+          <div class="date-input-group">
+            <label for="filterEndDate">End Date</label>
+            <input type="text" id="filterEndDate" placeholder="Choose end date">
+          </div>
+        </div>
+      </div>
+
+      <div class="date-filter-actions">
+        <button class="clear-filter-btn" id="clearDateFilter">Clear Filter</button>
+        <button class="apply-filter-btn" id="applyDateFilter">Apply Filter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    // Display current date
+    // Display current date or selected filter date
     function updateDate() {
       const dateElement = document.getElementById('currentDate');
-      const now = new Date();
-      const options = { 
-        weekday: 'short', 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
-      };
-      dateElement.textContent = '📅 ' + now.toLocaleDateString('en-US', options);
+      const currentDate = '{{ current_date }}';
+      const currentStartDate = '{{ current_start_date }}';
+      const currentEndDate = '{{ current_end_date }}';
+
+      if (currentDate) {
+        // Single date selected
+        const filterDate = new Date(currentDate);
+        const options = {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        };
+        dateElement.textContent = '📅 ' + filterDate.toLocaleDateString('en-US', options);
+      } else if (currentStartDate && currentEndDate) {
+        // Date range selected
+        const startDate = new Date(currentStartDate);
+        const endDate = new Date(currentEndDate);
+        const options = {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        };
+        dateElement.textContent = '📅 ' + startDate.toLocaleDateString('en-US', options) + ' - ' + endDate.toLocaleDateString('en-US', options);
+      } else {
+        // No filter, show current date
+        const now = new Date();
+        const options = {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        };
+        dateElement.textContent = '📅 ' + now.toLocaleDateString('en-US', options);
+      }
     }
     updateDate();
 
-    // Search functionality
+    // Get current URL parameters
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Update URL with new parameters
+    function updateUrlParameter(key, value) {
+      const url = new URL(window.location);
+      if (value) {
+        url.searchParams.set(key, value);
+      } else {
+        url.searchParams.delete(key);
+      }
+      window.location.href = url.toString();
+    }
+
+    // Status filter functionality - redirect with URL parameter
+    document.getElementById('statusFilter').addEventListener('change', function () {
+      updateUrlParameter('status', this.value);
+    });
+
+    // Search functionality - client-side filtering for current page
     document.getElementById('searchInput').addEventListener('keyup', function () {
       const searchValue = this.value.toLowerCase();
-      const statusFilter = document.getElementById('statusFilter').value.toLowerCase();
       const rows = document.querySelectorAll('#ordersTable tbody tr');
 
       rows.forEach(row => {
         const name = row.cells[1].textContent.toLowerCase();
         const mobile = row.cells[2].textContent.toLowerCase();
         const address = row.cells[3].textContent.toLowerCase();
-        const status = row.getAttribute('data-status');
 
         const matchesSearch = name.includes(searchValue) ||
           mobile.includes(searchValue) ||
           address.includes(searchValue);
-        const matchesStatus = statusFilter === '' || status === statusFilter;
 
-        row.style.display = (matchesSearch && matchesStatus) ? '' : 'none';
+        row.style.display = matchesSearch ? '' : 'none';
       });
     });
 
-    // Status filter functionality
-    document.getElementById('statusFilter').addEventListener('change', function () {
-      const statusFilter = this.value.toLowerCase();
-      const searchValue = document.getElementById('searchInput').value.toLowerCase();
-      const rows = document.querySelectorAll('#ordersTable tbody tr');
+    // Date Filter Functionality
+    const dateFilterModal = document.getElementById('dateFilterModal');
+    const currentDateElement = document.getElementById('currentDate');
+    const closeModalBtn = document.getElementById('closeModal');
+    const singleDateBtn = document.getElementById('singleDateBtn');
+    const dateRangeBtn = document.getElementById('dateRangeBtn');
+    const singleDateInput = document.getElementById('singleDateInput');
+    const dateRangeInputs = document.getElementById('dateRangeInputs');
+    const applyFilterBtn = document.getElementById('applyDateFilter');
+    const clearFilterBtn = document.getElementById('clearDateFilter');
 
-      rows.forEach(row => {
-        const name = row.cells[1].textContent.toLowerCase();
-        const mobile = row.cells[2].textContent.toLowerCase();
-        const address = row.cells[3].textContent.toLowerCase();
-        const status = row.getAttribute('data-status');
+    // Check if date filter is active
+    const currentDate = '{{ current_date }}';
+    const currentStartDate = '{{ current_start_date }}';
+    const currentEndDate = '{{ current_end_date }}';
 
-        const matchesSearch = name.includes(searchValue) ||
-          mobile.includes(searchValue) ||
-          address.includes(searchValue);
-        const matchesStatus = statusFilter === '' || status === statusFilter;
+    if (currentDate || (currentStartDate && currentEndDate)) {
+      currentDateElement.classList.add('active-filter');
+    }
 
-        row.style.display = (matchesSearch && matchesStatus) ? '' : 'none';
-      });
+    // Initialize Flatpickr for single date
+    const singleDatePicker = flatpickr('#filterDate', {
+      dateFormat: 'Y-m-d',
+      defaultDate: currentDate || null,
+      maxDate: 'today'
+    });
+
+    // Initialize Flatpickr for date range
+    const startDatePicker = flatpickr('#filterStartDate', {
+      dateFormat: 'Y-m-d',
+      defaultDate: currentStartDate || null,
+      maxDate: 'today',
+      onChange: function (selectedDates) {
+        endDatePicker.set('minDate', selectedDates[0]);
+      }
+    });
+
+    const endDatePicker = flatpickr('#filterEndDate', {
+      dateFormat: 'Y-m-d',
+      defaultDate: currentEndDate || null,
+      maxDate: 'today',
+      minDate: currentStartDate || null
+    });
+
+    // Open modal when clicking on current date
+    currentDateElement.addEventListener('click', function () {
+      dateFilterModal.classList.add('active');
+
+      // Set active mode based on current filter
+      if (currentStartDate && currentEndDate) {
+        switchToDateRange();
+      }
+    });
+
+    // Close modal
+    closeModalBtn.addEventListener('click', function () {
+      dateFilterModal.classList.remove('active');
+    });
+
+    // Close modal when clicking outside
+    dateFilterModal.addEventListener('click', function (e) {
+      if (e.target === dateFilterModal) {
+        dateFilterModal.classList.remove('active');
+      }
+    });
+
+    // Toggle between single date and date range
+    singleDateBtn.addEventListener('click', function () {
+      switchToSingleDate();
+    });
+
+    dateRangeBtn.addEventListener('click', function () {
+      switchToDateRange();
+    });
+
+    function switchToSingleDate() {
+      singleDateBtn.classList.add('active');
+      dateRangeBtn.classList.remove('active');
+      singleDateInput.style.display = 'block';
+      dateRangeInputs.style.display = 'none';
+    }
+
+    function switchToDateRange() {
+      singleDateBtn.classList.remove('active');
+      dateRangeBtn.classList.add('active');
+      singleDateInput.style.display = 'none';
+      dateRangeInputs.style.display = 'block';
+    }
+
+    // Apply date filter
+    applyFilterBtn.addEventListener('click', function () {
+      const url = new URL(window.location);
+
+      // Remove existing date parameters
+      url.searchParams.delete('date');
+      url.searchParams.delete('start_date');
+      url.searchParams.delete('end_date');
+      url.searchParams.delete('page'); // Reset to page 1
+
+      if (singleDateBtn.classList.contains('active')) {
+        // Single date mode
+        const selectedDate = document.getElementById('filterDate').value;
+        if (selectedDate) {
+          url.searchParams.set('date', selectedDate);
+        }
+      } else {
+        // Date range mode
+        const startDate = document.getElementById('filterStartDate').value;
+        const endDate = document.getElementById('filterEndDate').value;
+        if (startDate && endDate) {
+          url.searchParams.set('start_date', startDate);
+          url.searchParams.set('end_date', endDate);
+        }
+      }
+
+      window.location.href = url.toString();
+    });
+
+    // Clear date filter
+    clearFilterBtn.addEventListener('click', function () {
+      const url = new URL(window.location);
+      url.searchParams.delete('date');
+      url.searchParams.delete('start_date');
+      url.searchParams.delete('end_date');
+      url.searchParams.delete('page'); // Reset to page 1
+      window.location.href = url.toString();
     });
 
     // Confirm deletion

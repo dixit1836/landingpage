@@ -24,25 +24,7 @@
 
   <nav class="navbar">
     <div class="container nav-container">
-      <button class="mobile-toggle" aria-label="Toggle Menu">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-
-      <a href="#" class="logo">Pyto Atomy</a>
-
-      <div class="nav-menu">
-        <div class="nav-internal">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">Science</a>
-          <a href="#benefits" class="nav-link">Benefits</a>
-          <a href="#reviews" class="nav-link">Stories</a>
-          <a href="#order" class="btn-nav">Order Now</a>
-        </div>
-      </div>
-
+      <a href="/" class="logo" onclick="location.reload(); return false;">Pyto Atomy</a>
       <a href="#order" class="btn-order-nav">Order Now</a>
     </div>
   </nav>
@@ -395,6 +377,14 @@
       <p class="copy">&copy; 2025 Pyto Atomy.</p>
     </div>
   </footer>
+
+  <!-- Notification Toast -->
+  <div id="notification" class="notification">
+    <div class="notification-content">
+      <span class="notification-icon">✓</span>
+      <p class="notification-message">થોડા સમયમાં અમારા સેલ્સ ટીમ તરફથી સંપર્ક થશે</p>
+    </div>
+  </div>
 
   <script src="{% static 'main/js/script.js' %}"></script>
 </body>
