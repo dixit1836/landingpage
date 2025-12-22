@@ -1,0 +1,168 @@
+/* =========================================
+   COLOR PALETTE VARIABLES
+   ACTIVE THEME: PROFESSIONAL HEALTH THEME
+   Clean white background with vibrant health colors
+   Perfect for Ayurvedic/Medical Products
+   ========================================= */
+
+:root {
+  /* Background Colors */
+  --bg-dark: #fff7ed;                      /* Light cream background - Warm and inviting */
+  --bg-panel: rgba(255, 255, 255, 0.95);   /* White panels */
+  --bg-dim: #ffedd5;                       /* Warm peach for sections */
+  
+  /* Brand Colors - Energetic & Traditional */
+  --primary: #ea580c;                      /* Orange buttons - Energetic, friendly */
+  --accent: #f59e0b;                       /* Gold accents - Traditional, premium */
+  --success: #16a34a;                      /* Green for success */
+  
+  /* Text Colors - Black for readability */
+  --text-main: #000000;                    /* Pure black text */
+  --text-muted: #6b7280;                   /* Gray for secondary text */
+  
+  /* Border & Divider Colors */
+  --border: rgba(0, 0, 0, 0.1);            /* Light borders */
+  
+  /* Ambient Orb Colors (background decorations) */
+  --orb-1: #ffedd5;                        /* Light orange */
+  --orb-2: #fef3c7;                        /* Light gold */
+  --orb-3: rgba(234, 88, 12, 0.05);        /* Very light orange */
+  
+  /* Interactive Element Colors */
+  --hover-bg: rgba(234, 88, 12, 0.1);      /* Light orange hover */
+  --glass-bg: rgba(255, 255, 255, 0.9);    /* White glass effect */
+  --input-bg: #f9fafb;                     /* Light gray inputs */
+  --input-focus-bg: #ffffff;               /* White on focus */
+  
+  /* Gradient Colors */
+  --gradient-primary-start: #ea580c;       /* Orange start */
+  --gradient-primary-end: #c2410c;         /* Darker orange end */
+  --gradient-text-start: #000000;          /* Black text gradient */
+  --gradient-text-end: #374151;            /* Dark gray end */
+  
+  /* Badge & Pill Colors */
+  --badge-bg: #ffedd5;                     /* Light orange background */
+  --badge-border: #ea580c;                 /* Orange border */
+  
+  /* Highlight Colors */
+  --highlight-bg: #fff7ed;                 /* Very light cream */
+  --highlight-border: #ea580c;             /* Orange border */
+  
+  /* Special Colors */
+  --star-color: #f59e0b;                   /* Gold for stars */
+  --white-overlay: rgba(255, 255, 255, 0.98);
+  --black-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   ALTERNATIVE THEMES
+   To switch themes, replace the :root block above
+   ========================================= */
+
+/* ─────────────────────────────────────────
+   OCEAN BLUE THEME
+   Medical, professional, trustworthy
+   ───────────────────────────────────────── */
+/*
+:root {
+  --bg-dark: #ffffff;
+  --bg-panel: rgba(255, 255, 255, 0.95);
+  --bg-dim: #f0f9ff;
+  --primary: #0284c7;
+  --accent: #0891b2;
+  --success: #16a34a;
+  --text-main: #000000;
+  --text-muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.1);
+  --orb-1: #dbeafe;
+  --orb-2: #cffafe;
+  --orb-3: rgba(2, 132, 199, 0.05);
+  --hover-bg: rgba(2, 132, 199, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --input-bg: #f9fafb;
+  --input-focus-bg: #ffffff;
+  --gradient-primary-start: #0284c7;
+  --gradient-primary-end: #0369a1;
+  --gradient-text-start: #000000;
+  --gradient-text-end: #374151;
+  --badge-bg: #dbeafe;
+  --badge-border: #0284c7;
+  --highlight-bg: #f0f9ff;
+  --highlight-border: #0284c7;
+  --star-color: #f59e0b;
+  --white-overlay: rgba(255, 255, 255, 0.98);
+  --black-overlay: rgba(0, 0, 0, 0.5);
+}
+*/
+
+/* ─────────────────────────────────────────
+   PURPLE WELLNESS THEME
+   Premium, calming, wellness-focused
+   ───────────────────────────────────────── */
+/*
+:root {
+  --bg-dark: #ffffff;
+  --bg-panel: rgba(255, 255, 255, 0.95);
+  --bg-dim: #faf5ff;
+  --primary: #9333ea;
+  --accent: #ec4899;
+  --success: #16a34a;
+  --text-main: #000000;
+  --text-muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.1);
+  --orb-1: #f3e8ff;
+  --orb-2: #fce7f3;
+  --orb-3: rgba(147, 51, 234, 0.05);
+  --hover-bg: rgba(147, 51, 234, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --input-bg: #f9fafb;
+  --input-focus-bg: #ffffff;
+  --gradient-primary-start: #9333ea;
+  --gradient-primary-end: #7e22ce;
+  --gradient-text-start: #000000;
+  --gradient-text-end: #374151;
+  --badge-bg: #f3e8ff;
+  --badge-border: #9333ea;
+  --highlight-bg: #faf5ff;
+  --highlight-border: #9333ea;
+  --star-color: #f59e0b;
+  --white-overlay: rgba(255, 255, 255, 0.98);
+  --black-overlay: rgba(0, 0, 0, 0.5);
+}
+*/
+
+/* ─────────────────────────────────────────
+   WARM ORANGE THEME
+   Energetic, friendly, approachable
+   ───────────────────────────────────────── */
+/*
+:root {
+  --bg-dark: #ffffff;
+  --bg-panel: rgba(255, 255, 255, 0.95);
+  --bg-dim: #fff7ed;
+  --primary: #ea580c;
+  --accent: #f59e0b;
+  --success: #16a34a;
+  --text-main: #000000;
+  --text-muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.1);
+  --orb-1: #ffedd5;
+  --orb-2: #fef3c7;
+  --orb-3: rgba(234, 88, 12, 0.05);
+  --hover-bg: rgba(234, 88, 12, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --input-bg: #f9fafb;
+  --input-focus-bg: #ffffff;
+  --gradient-primary-start: #ea580c;
+  --gradient-primary-end: #c2410c;
+  --gradient-text-start: #000000;
+  --gradient-text-end: #374151;
+  --badge-bg: #ffedd5;
+  --badge-border: #ea580c;
+  --highlight-bg: #fff7ed;
+  --highlight-border: #ea580c;
+  --star-color: #f59e0b;
+  --white-overlay: rgba(255, 255, 255, 0.98);
+  --black-overlay: rgba(0, 0, 0, 0.5);
+}
+*/

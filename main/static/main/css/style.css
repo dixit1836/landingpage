@@ -2,17 +2,10 @@
    PREMIUM RESPONSIVE THEME - PYTO ATOMY
    ========================================= */
 
-:root {
-  /* Colors - White Background Theme */
-  --bg-dark: #ffffff;
-  --bg-panel: rgba(255, 255, 255, 0.9);
-  --primary: #000000;
-  --accent: #333333;
-  --text-main: #000000;
-  --text-muted: #666666;
-  --success: #000000;
-  --border: rgba(0, 0, 0, 0.2);
+/* Import Color Variables */
+@import url('colors.css');
 
+:root {
   /* Spacing System */
   --spacing-xs: 8px;
   --spacing-sm: 16px;
@@ -48,8 +41,8 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #000000;
+  background: var(--bg-dark) !important;
+  color: var(--text-main);
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
@@ -61,7 +54,7 @@ h3,
 h4 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  color: #000000;
+  color: var(--text-main);
   line-height: 1.1;
 }
 
@@ -225,7 +218,7 @@ h4 {
 /* Order Now Button in Header */
 .btn-order-nav {
   padding: 8px 16px;
-  background: #000;
+  background: var(--primary);
   border-radius: 8px;
   text-decoration: none;
   color: white;
@@ -238,7 +231,8 @@ h4 {
 }
 
 .btn-order-nav:hover {
-  background: #333;
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 /* Desktop Menu - Visible horizontal row by default */
@@ -746,7 +740,7 @@ h4 {
 
 .offer-banner {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--bg-dark);
   text-align: center;
   font-weight: 700;
   padding: 8px;
@@ -785,10 +779,10 @@ h4 {
 .input-group input {
   width: 100%;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
-  color: white;
+  color: var(--text-main);
   outline: none;
   transition: 0.3s;
   font-size: 1rem;
@@ -796,7 +790,7 @@ h4 {
 
 .input-group input:focus {
   border-color: var(--primary);
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--input-focus-bg);
 }
 
 .input-group label {
