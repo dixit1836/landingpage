@@ -65,7 +65,8 @@ h4 {
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  display: none; /* Hidden for white theme */
+  display: none;
+  /* Hidden for white theme */
 }
 
 .orb {
@@ -152,7 +153,7 @@ h4 {
 /* Navbar scrolled state */
 .navbar.scrolled {
   background: rgba(5, 5, 7, 0.95);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navbar.scrolled .logo {
@@ -197,7 +198,8 @@ h4 {
 
 /* Mobile Hamburger - Hidden by default (Desktop) */
 .mobile-toggle {
-  display: none; /* Desktop: Hidden */
+  display: none;
+  /* Desktop: Hidden */
   background: none;
   border: none;
   cursor: pointer;
@@ -262,7 +264,8 @@ h4 {
 }
 
 .nav-link {
-  color: #000000; /* Dark text for desktop white header */
+  color: #000000;
+  /* Dark text for desktop white header */
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -274,7 +277,8 @@ h4 {
 }
 
 .btn-nav {
-  display: none; /* Hide 'Order Now' in menu for desktop, we have header button */
+  display: none;
+  /* Hide 'Order Now' in menu for desktop, we have header button */
 }
 
 .btn-nav:hover {
@@ -436,6 +440,29 @@ h4 {
   50% {
     transform: translateY(-10px);
   }
+}
+
+/* Hero Video Box */
+.hero-video-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-video-container {
+  max-width: 416px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #000000;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-featured-video {
+  width: 100%;
+  max-height: 585px;
+  display: block;
+  background: #000;
+  object-fit: contain;
 }
 
 /* --- Stats Bar (Scrollable) --- */
@@ -950,6 +977,7 @@ footer {
 
 /* Tablet (1024px and down) */
 @media (max-width: 1024px) {
+
   /* Restore Mobile Toggle */
   .mobile-toggle {
     display: block;
@@ -992,7 +1020,7 @@ footer {
     color: #ffffff;
     font-size: 1.3rem;
   }
-  
+
   /* Show btn-nav inside menu on mobile */
   .btn-nav {
     display: inline-block;
@@ -1008,17 +1036,18 @@ footer {
   }
 
   /* Hide header order button when menu is active (optional) */
-  .nav-menu.active ~ .btn-order-nav {
+  .nav-menu.active~.btn-order-nav {
     display: none;
   }
-  
+
   /* Layout Adjustments */
   .card-scroller {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .review-scroller {
-    grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cols on tablet */
   }
 
   .hero-wrapper {
@@ -1029,6 +1058,10 @@ footer {
   .hero-image-box {
     order: -1;
     margin-bottom: 30px;
+  }
+
+  .hero-video-box {
+    display: none;
   }
 
   .hero-desc {
@@ -1160,7 +1193,10 @@ footer {
   }
 
   /* Ensure text is readable on mobile */
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     word-wrap: break-word;
   }
 
@@ -1196,6 +1232,7 @@ footer {
 
 /* Extra Small Mobile (480px and down) */
 @media (max-width: 480px) {
+
   /* Tighter container */
   .container {
     width: 95%;
@@ -1353,19 +1390,19 @@ footer {
   .notification {
     max-width: 95%;
   }
-  
+
   .notification.show {
     bottom: 20px;
   }
-  
+
   .notification-content {
     padding: 14px 18px;
   }
-  
+
   .notification-message {
     font-size: 0.85rem;
   }
-  
+
   .notification-icon {
     width: 24px;
     height: 24px;
@@ -1375,7 +1412,7 @@ footer {
 
 /* --- Video Section --- */
 .video-container {
-  max-width: 800px;
+  max-width: 400px;
   margin: 40px auto 0;
   border-radius: var(--radius);
   overflow: hidden;
@@ -1385,13 +1422,31 @@ footer {
 
 .featured-video {
   width: 100%;
+  max-height: 500px;
   display: block;
   background: #000;
+  object-fit: contain;
+}
+
+/* Mobile Video Section - Hidden on Desktop, Visible on Mobile */
+.mobile-video-section {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobile-video-section {
+    display: block;
+  }
 }
 
 @media (max-width: 768px) {
   .video-container {
+    max-width: 280px;
     margin: 30px auto 0;
     border-radius: 16px;
+  }
+
+  .featured-video {
+    max-height: 400px;
   }
 }
